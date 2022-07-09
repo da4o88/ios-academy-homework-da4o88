@@ -73,8 +73,11 @@
                     </view>
                     <connections>
                         <outlet property="button" destination="M8J-vl-L8M" id="P58-mz-1Pf"/>
+                        <outlet property="doRoundedButton" destination="M8J-vl-L8M" id="1uU-Qu-kre"/>
                         <outlet property="myViewController" destination="Nu6-pn-0ss" id="lJe-1I-iTr"/>
                         <outlet property="viewNumberOfTaps" destination="auT-fq-4Gd" id="REY-hT-neO"/>
+                        <outletCollection property="myRoundedButtons" destination="lAO-zf-Kds" collectionClass="NSMutableArray" id="1WT-2I-A7E"/>
+                        <outletCollection property="myRoundedButtons" destination="M8J-vl-L8M" collectionClass="NSMutableArray" id="Wus-sp-g3C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
