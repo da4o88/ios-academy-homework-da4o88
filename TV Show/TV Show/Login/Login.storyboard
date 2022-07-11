@@ -54,7 +54,7 @@
                                         <rect key="frame" x="43" y="39" width="289" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Reset Counter">
+                                        <buttonConfiguration key="configuration" style="filled" title="Reset Taps Count">
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,6 +64,11 @@
                                             <action selector="resetCounter" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Pk0-gr-MvR"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="sy0-cu-Dyo">
+                                        <rect key="frame" x="145" y="378" width="62" height="57"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.5725490196078431" green="0.86274509803921573" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -72,6 +77,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="sy0-cu-Dyo" id="WNG-Rs-xQF"/>
                         <outlet property="button" destination="M8J-vl-L8M" id="P58-mz-1Pf"/>
                         <outlet property="doRoundedButton" destination="M8J-vl-L8M" id="1uU-Qu-kre"/>
                         <outlet property="myViewController" destination="Nu6-pn-0ss" id="lJe-1I-iTr"/>
