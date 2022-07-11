@@ -21,8 +21,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        // Do any additional setup after loading the view.
-        myViewController.backgroundColor = .purple
+      // Do any additional setup after loading the view.
+      //  myViewController.backgroundColor = .purple
         roundedButtons()
 
         
@@ -30,13 +30,16 @@ class LoginViewController: UIViewController {
                 
 
     }
-    
+  
+        
     func roundedButtons(){
         for button in myRoundedButtons {
             button.layer.cornerRadius = 15.0
             button.layer.masksToBounds = true
-         }
+        
+        }
     }
+    
     
     var tapsCounter = 0
     @IBAction func countNumberOfTaps(){
