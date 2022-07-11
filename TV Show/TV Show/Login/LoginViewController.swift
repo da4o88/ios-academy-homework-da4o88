@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
       // Do any additional setup after loading the view.
       //  myViewController.backgroundColor = .purple
         roundedButtons()
-
+        button.imageView?.contentMode = .scaleAspectFit
         
                    
                 
