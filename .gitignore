@@ -187,6 +187,7 @@ Dependencies/
 ### SwiftPackageManager ###
 
 
+
 ### SwiftPM ###
 
 
@@ -217,6 +218,7 @@ Dependencies/
 /*.gcno
 
 ### Xcode Patch ###
+
 
 
 # End of https://www.toptal.com/developers/gitignore/api/sublimetext,visualstudiocode,xcode,macos,swift,swiftpm,swiftpackagemanager,objective-c
