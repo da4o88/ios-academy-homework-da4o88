@@ -29,7 +29,7 @@ final class LoginViewController: UIViewController {
         
         // Backround color is #52368C
         
-        self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
+        //self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
         
     }
   
