@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,75 +15,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nu6-pn-0ss">
-                                <rect key="frame" x="12" y="55" width="352" height="726"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Number of Taps:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXK-0m-5qT">
-                                        <rect key="frame" x="93" y="116" width="189" height="106"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.1647058824" green="0.23529411759999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8J-vl-L8M">
-                                        <rect key="frame" x="43" y="478" width="289" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" image="small_button_image" title="Tap Me!" imagePadding="15">
-                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="countNumberOfTaps" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UCk-kQ-maa"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auT-fq-4Gd">
-                                        <rect key="frame" x="93" y="230" width="189" height="106"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.16470588235294117" green="0.23529411764705882" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAO-zf-Kds">
-                                        <rect key="frame" x="43" y="39" width="289" height="52"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Reset Taps Count">
-                                            <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="baseBackgroundColor" red="0.29803921568627451" green="0.68627450980392157" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="countNumberOfTaps" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9Q5-Mz-mBz"/>
-                                            <action selector="resetCounter" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Pk0-gr-MvR"/>
-                                        </connections>
-                                    </button>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="sy0-cu-Dyo">
-                                        <rect key="frame" x="145" y="378" width="62" height="57"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.5725490196078431" green="0.86274509803921573" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-top-left" translatesAutoresizingMaskIntoConstraints="NO" id="BUf-6A-zzv">
+                                <rect key="frame" x="0.0" y="44" width="99" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99.129999999999995" id="TbW-cI-RTE"/>
+                                    <constraint firstAttribute="height" constant="99.129999999999995" id="jcn-JS-EG3"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="splash-top-right" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-Ap-dNe">
+                                <rect key="frame" x="188" y="45" width="202" height="266"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="265.93000000000001" id="1lx-FE-ndh"/>
+                                    <constraint firstAttribute="width" constant="202" id="AUD-5L-iWm"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="202" id="S5T-Af-9VX"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="265.93000000000001" id="blE-IN-3Te"/>
+                                    <constraint firstAttribute="height" constant="265.93000000000001" id="foo-XQ-Fhr"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.32156862745098036" green="0.21176470588235294" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="cCh-Ap-dNe" firstAttribute="leading" secondItem="BUf-6A-zzv" secondAttribute="trailing" constant="88.870000000000005" id="5mj-uQ-Kfj"/>
+                            <constraint firstItem="cCh-Ap-dNe" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="5yU-K6-H02"/>
+                            <constraint firstItem="cCh-Ap-dNe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="HmZ-n1-8Ww"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cCh-Ap-dNe" secondAttribute="trailing" id="KoH-HY-cfc"/>
+                            <constraint firstItem="cCh-Ap-dNe" firstAttribute="leading" secondItem="BUf-6A-zzv" secondAttribute="trailing" constant="188" id="R1k-k1-363"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BUf-6A-zzv" secondAttribute="trailing" constant="290.87" id="Sui-rb-whx"/>
+                            <constraint firstItem="BUf-6A-zzv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UuZ-P8-Tbb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cCh-Ap-dNe" secondAttribute="bottom" constant="578.07000000000005" id="VNU-oG-rUb"/>
+                            <constraint firstItem="cCh-Ap-dNe" firstAttribute="leading" secondItem="BUf-6A-zzv" secondAttribute="trailing" constant="188" id="aWK-wa-Bcl"/>
+                            <constraint firstAttribute="trailing" secondItem="cCh-Ap-dNe" secondAttribute="trailing" id="kFz-uB-HON"/>
+                            <constraint firstItem="BUf-6A-zzv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="nSn-FN-7hu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BUf-6A-zzv" secondAttribute="bottom" constant="744.87" id="qSN-67-ZuZ"/>
+                            <constraint firstItem="cCh-Ap-dNe" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="rW2-qL-t1k"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cCh-Ap-dNe" secondAttribute="trailing" id="uA5-YZ-sv8"/>
+                            <constraint firstItem="BUf-6A-zzv" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="uXY-VF-CX9"/>
+                            <constraint firstItem="cCh-Ap-dNe" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="vxM-gz-bA6"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="activityIndicator" destination="sy0-cu-Dyo" id="WNG-Rs-xQF"/>
-                        <outlet property="button" destination="M8J-vl-L8M" id="P58-mz-1Pf"/>
-                        <outlet property="doRoundedButton" destination="M8J-vl-L8M" id="1uU-Qu-kre"/>
-                        <outlet property="myViewController" destination="Nu6-pn-0ss" id="lJe-1I-iTr"/>
-                        <outlet property="viewNumberOfTaps" destination="auT-fq-4Gd" id="REY-hT-neO"/>
-                        <outletCollection property="myRoundedButtons" destination="lAO-zf-Kds" collectionClass="NSMutableArray" id="1WT-2I-A7E"/>
-                        <outletCollection property="myRoundedButtons" destination="M8J-vl-L8M" collectionClass="NSMutableArray" id="Wus-sp-g3C"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -92,9 +61,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="small_button_image" width="53" height="50"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="splash-top-left" width="140" height="100"/>
+        <image name="splash-top-right" width="202" height="266"/>
     </resources>
 </document>
