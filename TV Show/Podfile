@@ -7,5 +7,6 @@ target 'TV Show' do
 
   # Pods for TV Show
   pod 'MBProgressHUD'
+  pod 'Alamofire'
 
 end
