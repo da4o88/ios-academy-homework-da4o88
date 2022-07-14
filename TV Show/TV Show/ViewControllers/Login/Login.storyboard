@@ -75,13 +75,82 @@
                                     <constraint firstItem="cCh-Ap-dNe" firstAttribute="top" secondItem="Rtk-LN-H72" secondAttribute="top" id="qbo-fg-338"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="ehP-xA-Ile">
+                                <rect key="frame" x="27.666666666666657" y="356" width="320" height="37"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fPM-YG-epE">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="rDi-cn-ZwE"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="__________________________________________" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2BR-dY-kz1">
+                                        <rect key="frame" x="0.0" y="17" width="320" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="D9J-jR-OKL"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="9rH-mB-0Rx"/>
+                                    <constraint firstAttribute="width" constant="320" id="G37-vS-3n7"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-3" translatesAutoresizingMaskIntoConstraints="NO" id="fnv-m8-7Go">
+                                <rect key="frame" x="27.666666666666657" y="416" width="320" height="37"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcg-2M-Edh">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="rbr-3P-PgE"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" text="__________________________________________" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pew-MU-62Q">
+                                        <rect key="frame" x="0.0" y="17" width="320" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="gLW-r7-l7u"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="4cE-r6-aLJ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" id="pvn-Ub-Ys7"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.32156862745098036" green="0.21176470588235294" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="hcg-2M-Edh" firstAttribute="top" secondItem="fPM-YG-epE" secondAttribute="bottom" constant="40" id="4ag-5C-6Un"/>
                             <constraint firstItem="Rtk-LN-H72" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Lhv-6Z-ZG7"/>
                             <constraint firstItem="Rtk-LN-H72" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="M47-be-Rh3"/>
+                            <constraint firstItem="ehP-xA-Ile" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="NL0-Jk-De6"/>
                             <constraint firstAttribute="trailing" secondItem="Rtk-LN-H72" secondAttribute="trailing" id="dvf-yL-aj8"/>
+                            <constraint firstItem="ehP-xA-Ile" firstAttribute="top" secondItem="fhP-mE-4wq" secondAttribute="bottom" constant="45" id="ioL-Ob-QRe"/>
+                            <constraint firstItem="fnv-m8-7Go" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="lGX-H5-7HZ"/>
                             <constraint firstItem="Rtk-LN-H72" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="lsX-6e-n5p"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ACo-xt-eNr" secondAttribute="trailing" constant="100" id="nq1-C1-0pl"/>
                         </constraints>
