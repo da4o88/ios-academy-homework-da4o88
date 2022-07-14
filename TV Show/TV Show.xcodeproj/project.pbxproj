@@ -50,7 +50,6 @@
 				BE3107D1077911F4E916C452 /* Pods-TV Show.debug.xcconfig */,
 				A73CF2C284F0B27B917B2283 /* Pods-TV Show.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -92,7 +91,7 @@
 		42B19E9A2875F82000EB4836 /* TV Show */ = {
 			isa = PBXGroup;
 			children = (
-				427277F8287853350057F632 /* Login */,
+				42B4EDB32880432000AB1DDE /* ViewControllers */,
 				42B19E9B2875F82000EB4836 /* AppDelegate.swift */,
 				42B19E9D2875F82000EB4836 /* SceneDelegate.swift */,
 				42B19E9F2875F82000EB4836 /* ViewController.swift */,
@@ -101,6 +100,14 @@
 				42B19EA92875F82200EB4836 /* Info.plist */,
 			);
 			path = "TV Show";
+			sourceTree = "<group>";
+		};
+		42B4EDB32880432000AB1DDE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				427277F8287853350057F632 /* Login */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
