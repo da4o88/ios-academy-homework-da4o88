@@ -16,10 +16,13 @@ final class LoginViewController: UIViewController {
     
     @IBOutlet private weak var checkBoxButton: UIButton!
     @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var showPasswordButton: UIButton!
     
     //MARK: - Properties
     
-   private var checkedButton = false
+    private var checkedButton = false
+    private var isPasswordHidden = true
     
     // MARK: - Lifecycle methods
     
@@ -39,6 +42,7 @@ final class LoginViewController: UIViewController {
   
     // MARK: - Actions
     
+    // Checkbox button for Remember me
     @IBAction private func checkButton(_ sender: Any) {
         if (!checkedButton) {
             
@@ -51,6 +55,25 @@ final class LoginViewController: UIViewController {
             checkedButton = false
         }
         
+    }
+    
+    // Show - Hide password
+    
+    @IBAction func showPassword(_ sender: Any) {
+        
+        if isPasswordHidden {
+            
+            showPasswordButton.setImage(UIImage (named: "ic-invisible"), for: .normal)
+            isPasswordHidden = false
+            passwordTextField.isSecureTextEntry = false
+            
+        } else {
+            
+            showPasswordButton.setImage(UIImage (named: "ic-visible"), for: .normal)
+            isPasswordHidden = true
+            passwordTextField.isSecureTextEntry = true
+            
+        }
     }
     
     //MARK: Utility methods
