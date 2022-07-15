@@ -15,7 +15,7 @@ final class LoginViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet private weak var checkBoxButton: UIButton!
-    
+    @IBOutlet private weak var loginButton: UIButton!
     
     //MARK: - Properties
     
@@ -30,9 +30,10 @@ final class LoginViewController: UIViewController {
       // Do any additional setup after loading the view.
       // MBProgressHUD.showAdded(to: view, animated: true)
         
-        // Backround color is #52368C
+      // Backround color is #52368C
+      //self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
         
-        //self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
+        roundedButtons()
         
     }
   
@@ -43,7 +44,9 @@ final class LoginViewController: UIViewController {
             
             checkBoxButton.setImage(UIImage (named: "ic-checkbox-selected"), for: .normal)
             checkedButton = true
+            
         } else {
+            
             checkBoxButton.setImage(UIImage (named: "ic-checkbox-unselected"), for: .normal)
             checkedButton = false
         }
@@ -52,6 +55,11 @@ final class LoginViewController: UIViewController {
     
     //MARK: Utility methods
     
-   
+    private func roundedButtons() -> Void {
+        
+        loginButton.layer.cornerRadius = 24
+        loginButton.layer.masksToBounds = true
+        
+    }
     
 }
