@@ -14,11 +14,13 @@ final class LoginViewController: UIViewController {
     
     // MARK: - Outlets
     
-   
+    @IBOutlet private weak var checkBoxButton: UIButton!
+    
     
     //MARK: - Properties
     
-   
+   private var checkedButton = false
+    
     // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
@@ -36,6 +38,17 @@ final class LoginViewController: UIViewController {
   
     // MARK: - Actions
     
+    @IBAction private func checkButton(_ sender: Any) {
+        if (!checkedButton) {
+            
+            checkBoxButton.setImage(UIImage (named: "ic-checkbox-selected"), for: .normal)
+            checkedButton = true
+        } else {
+            checkBoxButton.setImage(UIImage (named: "ic-checkbox-unselected"), for: .normal)
+            checkedButton = false
+        }
+        
+    }
     
     //MARK: Utility methods
     
