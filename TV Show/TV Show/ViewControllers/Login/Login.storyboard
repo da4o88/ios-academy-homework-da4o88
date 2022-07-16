@@ -225,7 +225,6 @@
                             <constraint firstItem="cZ9-N1-lCA" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="wsW-Rp-7te"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="375" height="812"/>
                     <connections>
                         <outlet property="checkBoxButton" destination="sbg-gS-RpG" id="c10-nO-t1R"/>
                         <outlet property="loginButton" destination="9mj-0d-WE3" id="r34-in-sRv"/>
