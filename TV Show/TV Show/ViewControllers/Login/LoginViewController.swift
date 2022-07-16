@@ -18,6 +18,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var showPasswordButton: UIButton!
+    @IBOutlet private weak var scrollView: UIScrollView!
     
     //MARK: - Properties
     
@@ -34,10 +35,16 @@ final class LoginViewController: UIViewController {
       // MBProgressHUD.showAdded(to: view, animated: true)
         
       // Backround color is #52368C
-      //self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
-        
+      self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
+
         roundedButtons()
+//        scrollView.contentSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 600)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
     }
   
     // MARK: - Actions
