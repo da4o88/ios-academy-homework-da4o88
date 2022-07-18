@@ -231,9 +231,10 @@
                             <constraint firstItem="cZ9-N1-lCA" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="wsW-Rp-7te"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fQq-Md-dbe"/>
+                    <navigationItem key="navigationItem" title="Navigation Bar" id="fQq-Md-dbe"/>
                     <connections>
                         <outlet property="checkBoxButton" destination="sbg-gS-RpG" id="c10-nO-t1R"/>
+                        <outlet property="emailTextField" destination="fPM-YG-epE" id="22m-sF-P7b"/>
                         <outlet property="loginButton" destination="9mj-0d-WE3" id="r34-in-sRv"/>
                         <outlet property="passwordTextField" destination="hcg-2M-Edh" id="wVr-Be-vU3"/>
                         <outlet property="scrollView" destination="cZ9-N1-lCA" id="Doi-Bc-XGS"/>
@@ -252,7 +253,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="3LB-8y-Ogh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8U-Io-qjs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -267,7 +268,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WW9-XW-R8O">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.32156862749999998" green="0.99997437" blue="0.99999129769999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -287,6 +288,9 @@
         <image name="splash-top-right" width="202" height="266"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

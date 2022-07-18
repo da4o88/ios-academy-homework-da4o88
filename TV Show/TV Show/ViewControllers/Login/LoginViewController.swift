@@ -17,14 +17,18 @@ final class LoginViewController: UIViewController {
     
     @IBOutlet private weak var checkBoxButton: UIButton!
     @IBOutlet private weak var loginButton: UIButton!
-    @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var showPasswordButton: UIButton!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var scrollView: UIScrollView!
     
     //MARK: - Properties
     
     private var checkedButton = false
     private var isPasswordHidden = true
+    private var emailPassFieldEmpty = true
+    private var email = ""
+    private var password = ""
     
     // MARK: - Lifecycle methods
     
@@ -33,7 +37,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         
       // Backround color is #52368C
-      //      self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
+      // self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
@@ -60,6 +64,7 @@ final class LoginViewController: UIViewController {
     // Checkbox button for Remember me
     
     @IBAction private func checkButton(_ sender: Any) {
+        
         if (!checkedButton) {
             
             checkBoxButton.setImage(UIImage (named: "ic-checkbox-selected"), for: .normal)
@@ -97,15 +102,27 @@ final class LoginViewController: UIViewController {
     
     @IBAction func didTapLoginButton(_ sender: Any) {
         
-        pushToHomeScreen()
+        validateEmailPassword()
+        
+        if !emailPassFieldEmpty {
+            
+            signIn()
+            
+        }
+        
     }
     
     // Register Button Action
     
-    
     @IBAction func didTapRegisterButton(_ sender: Any) {
         
-        pushToHomeScreen()
+        validateEmailPassword()
+        
+        if !emailPassFieldEmpty {
+            
+            registerUser()
+            
+        }
     }
     
     // MARK: - Utility methods
@@ -130,34 +147,133 @@ final class LoginViewController: UIViewController {
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height + 20
         scrollView.contentInset = contentInset
+        
     }
     
     @objc func keyboardWillHide(notification:NSNotification) {
 
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
+        
     }
     
     //Calls this function when the tap is recognized.
     
     @objc func dismissKeyboard() {
+        
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        
         view.endEditing(true)
     }
     
-    // Push to HomeScreen
+    // Push to HomeScreenController
     
     func pushToHomeScreen() {
         
         let homeScreen = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
         homeScreen.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.pushViewController(homeScreen, animated: true)
+        
     }
     
     // Validate email and password
     
+    func validateEmailPassword() {
+        
+        email = emailTextField.text!
+        password = passwordTextField.text!
+        
+        if !(email.isEmpty) && !(password.isEmpty) {
+            
+            emailPassFieldEmpty = false
+            
+        } else {
+            
+            emailPassFieldEmpty = true
+        }
+    }
+    
     // Login User call to API
+    
+    
+    func signIn() {
+        
+        // Test API
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        // Alamofire
+        
+        let parameters: [String: String?] = [
+            
+            "email": email,
+            "password": password
+        ]
+                
+        AF
+            .request(
+            "https://tv-shows.infinum.academy/users/sign_in",
+            method: HTTPMethod.post,
+            parameters: parameters,
+            encoder: JSONParameterEncoder.default
+        )
+        .validate()
+        .responseDecodable(of: UserResponse.self) { [weak self] response in
+            guard let self = self else {return}
+            MBProgressHUD.hide(for: self.view, animated: true)
+            switch response.result {
+            case .success(let response):
+                self.pushToHomeScreen()
+                print("API Response ---")
+                print("Success: \(response)")
+                print(response.user.email)
+              
+            case .failure(let error):
+                print("API Error ---")
+                print("Failure: \(error)")
+              
+            }
+        }
+    }
     
     // Register User call to API
     
+    func registerUser() {
+        
+        // Test API
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        // Alamofire
+        
+        let parameters: [String: String?] = [
+            
+            "email": email,
+            "password": password,
+            "password_confirmation": password
+        ]
+                
+        AF
+            .request(
+            "https://tv-shows.infinum.academy/users",
+            method: HTTPMethod.post,
+            parameters: parameters,
+            encoder: JSONParameterEncoder.default
+        )
+        .validate()
+        .responseDecodable(of: UserResponse.self) { [weak self] response in
+            guard let self = self else {return}
+            MBProgressHUD.hide(for: self.view, animated: true)
+            switch response.result {
+            case .success(let response):
+                self.pushToHomeScreen()
+                print(response.user.email)
+                
+            case .failure(let error):
+                print("API Error ---")
+                print("Failure: \(error)")
+              
+            }
+        }
+    }
 }
