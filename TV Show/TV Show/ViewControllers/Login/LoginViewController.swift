@@ -50,7 +50,7 @@ final class LoginViewController: UIViewController {
         //tap.cancelsTouchesInView = false
 
         view.addGestureRecognizer(tap)
-
+ 
     }
     
     override func viewWillAppear(_ animated: Bool) {

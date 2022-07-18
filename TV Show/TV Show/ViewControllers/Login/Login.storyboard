@@ -11,7 +11,7 @@
         <!--ViewControllerLogin-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="Login" title="ViewControllerLogin" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="TV_Show" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="ViewControllerLogin" automaticallyAdjustsScrollViewInsets="NO" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="TV_Show" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,7 +231,7 @@
                             <constraint firstItem="cZ9-N1-lCA" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="wsW-Rp-7te"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Navigation Bar" id="fQq-Md-dbe"/>
+                    <navigationItem key="navigationItem" id="fQq-Md-dbe"/>
                     <connections>
                         <outlet property="checkBoxButton" destination="sbg-gS-RpG" id="c10-nO-t1R"/>
                         <outlet property="emailTextField" destination="fPM-YG-epE" id="22m-sF-P7b"/>
