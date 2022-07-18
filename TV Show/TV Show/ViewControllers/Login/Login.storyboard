@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lSY-0S-tEa">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -175,6 +175,9 @@
                                                             <color key="baseForegroundColor" red="0.32156862749999998" green="0.21176470589999999" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="didTapLoginButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zkj-3K-BdX"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIq-Hr-oeF">
                                                         <rect key="frame" x="0.0" y="65" width="311" height="20"/>
@@ -186,6 +189,9 @@
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="didTapRegisterButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="nH4-ig-pva"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -225,6 +231,7 @@
                             <constraint firstItem="cZ9-N1-lCA" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="wsW-Rp-7te"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fQq-Md-dbe"/>
                     <connections>
                         <outlet property="checkBoxButton" destination="sbg-gS-RpG" id="c10-nO-t1R"/>
                         <outlet property="loginButton" destination="9mj-0d-WE3" id="r34-in-sRv"/>
@@ -235,7 +242,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56.799999999999997" y="-309.60591133004925"/>
+            <point key="canvasLocation" x="-18" y="269"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="qtz-VO-hdU">
+            <objects>
+                <viewController storyboardIdentifier="HomeScreen" id="3jI-vl-aO9" customClass="HomeViewController" customModule="TV_Show" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z0G-QS-BBc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3LB-8y-Ogh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y8U-Io-qjs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8gH-K0-d7W">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lSY-0S-tEa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WW9-XW-R8O">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.32156862749999998" green="0.99997437" blue="0.99999129769999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="C7Y-lc-yhl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TP1-o4-yjC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="-460"/>
         </scene>
     </scenes>
     <resources>

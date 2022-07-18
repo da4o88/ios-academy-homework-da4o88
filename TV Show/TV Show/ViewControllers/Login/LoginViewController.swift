@@ -92,7 +92,23 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    //MARK: Utility methods
+    // Login and Register Section
+    // Login Button Action
+    
+    @IBAction func didTapLoginButton(_ sender: Any) {
+        
+        pushToHomeScreen()
+    }
+    
+    // Register Button Action
+    
+    
+    @IBAction func didTapRegisterButton(_ sender: Any) {
+        
+        pushToHomeScreen()
+    }
+    
+    // MARK: - Utility methods
     
     // Create round edges on button
     
@@ -128,5 +144,20 @@ final class LoginViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    // Push to HomeScreen
+    
+    func pushToHomeScreen() {
+        
+        let homeScreen = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
+        homeScreen.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.pushViewController(homeScreen, animated: true)
+    }
+    
+    // Validate email and password
+    
+    // Login User call to API
+    
+    // Register User call to API
     
 }
