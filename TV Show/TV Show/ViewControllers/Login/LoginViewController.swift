@@ -6,6 +6,7 @@
 //
 //
 //
+
 import UIKit
 import MBProgressHUD
 import Alamofire
@@ -31,23 +32,29 @@ final class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         
-      // Do any additional setup after loading the view.
-      // MBProgressHUD.showAdded(to: view, animated: true)
-      //
       // Backround color is #52368C
+      //      self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
         
-//      self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+        //Looks for single or multiple taps.
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
 
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         roundedButtons()
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height+300)
-        
-    }
-  
     // MARK: - Actions
     
     // Checkbox button for Remember me
@@ -94,6 +101,32 @@ final class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 24
         loginButton.layer.masksToBounds = true
         
+    }
+    
+    // Show-Hide keyboard
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
+    
+    //Calls this function when the tap is recognized.
+    
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
 }
