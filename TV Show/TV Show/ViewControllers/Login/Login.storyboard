@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lSY-0S-tEa">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,7 +11,7 @@
         <!--ViewControllerLogin-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="Login" title="ViewControllerLogin" automaticallyAdjustsScrollViewInsets="NO" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="TV_Show" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" title="ViewControllerLogin" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="TV_Show" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,26 +23,26 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rtk-LN-H72" userLabel="View Top">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="312"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-top-left" translatesAutoresizingMaskIntoConstraints="NO" id="BUf-6A-zzv" userLabel="Image View Top Left">
-                                                        <rect key="frame" x="0.0" y="44" width="99" height="99"/>
+                                                        <rect key="frame" x="0.0" y="2" width="99" height="99"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="99" id="25H-3l-drh"/>
                                                             <constraint firstAttribute="width" constant="99" id="mGu-TM-03G"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-top-right" translatesAutoresizingMaskIntoConstraints="NO" id="cCh-Ap-dNe" userLabel="Image View Top Right">
-                                                        <rect key="frame" x="170" y="44" width="207" height="266"/>
+                                                        <rect key="frame" x="170" y="2" width="207" height="266"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="207" id="3Dh-tA-BqC"/>
                                                         </constraints>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-white" translatesAutoresizingMaskIntoConstraints="NO" id="NQJ-iA-37M" userLabel="Image View Logo">
-                                                        <rect key="frame" x="106.66666666666669" y="158" width="162" height="38"/>
+                                                        <rect key="frame" x="106.66666666666669" y="116" width="162" height="38"/>
                                                     </imageView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ACo-xt-eNr">
-                                                        <rect key="frame" x="20" y="231" width="253" height="81"/>
+                                                        <rect key="frame" x="20" y="189" width="253" height="81"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mt-v2-mRq">
                                                                 <rect key="frame" x="0.0" y="0.0" width="253" height="40.666666666666664"/>
@@ -51,7 +51,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to continue please log in." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhP-mE-4wq">
-                                                                <rect key="frame" x="0.0" y="60.666666666666693" width="253" height="20.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="60.666666666666664" width="253" height="20.333333333333336"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -66,14 +66,14 @@
                                                     <constraint firstItem="cCh-Ap-dNe" firstAttribute="top" secondItem="BUf-6A-zzv" secondAttribute="top" id="DMZ-Ry-LGI"/>
                                                     <constraint firstItem="NQJ-iA-37M" firstAttribute="centerX" secondItem="Rtk-LN-H72" secondAttribute="centerX" id="GUA-zu-fHh"/>
                                                     <constraint firstItem="BUf-6A-zzv" firstAttribute="leading" secondItem="Rtk-LN-H72" secondAttribute="leading" id="S5S-Vf-mbo"/>
-                                                    <constraint firstAttribute="height" constant="312" id="ZXP-ga-oa4"/>
+                                                    <constraint firstAttribute="height" constant="270" id="ZXP-ga-oa4"/>
                                                     <constraint firstAttribute="bottom" secondItem="ACo-xt-eNr" secondAttribute="bottom" id="m9m-uM-AF6"/>
                                                     <constraint firstItem="ACo-xt-eNr" firstAttribute="top" secondItem="BUf-6A-zzv" secondAttribute="bottom" constant="88" id="ovs-le-ocr"/>
                                                     <constraint firstAttribute="trailing" secondItem="cCh-Ap-dNe" secondAttribute="trailing" constant="-2" id="wld-JI-uBr"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Q6d-KV-DPj" userLabel="Stack View Input">
-                                                <rect key="frame" x="23" y="357" width="320" height="110.66666666666669"/>
+                                                <rect key="frame" x="23" y="315" width="320" height="110.66666666666669"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="ehP-xA-Ile">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="32.666666666666664"/>
@@ -141,7 +141,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="7DI-0n-92j" userLabel="Stack View Checkbox">
-                                                <rect key="frame" x="18" y="485.66666666666669" width="174.33333333333334" height="30.000000000000057"/>
+                                                <rect key="frame" x="18" y="443.66666666666669" width="174.33333333333334" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbg-gS-RpG">
                                                         <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
@@ -163,7 +163,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6y-ab-ivy" userLabel="Stack View Buttons">
-                                                <rect key="frame" x="32" y="545.66666666666663" width="311" height="85"/>
+                                                <rect key="frame" x="32" y="503.66666666666674" width="311" height="85"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9mj-0d-WE3">
                                                         <rect key="frame" x="0.0" y="0.0" width="311" height="48"/>
@@ -180,7 +180,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIq-Hr-oeF">
-                                                        <rect key="frame" x="0.0" y="65" width="311" height="20"/>
+                                                        <rect key="frame" x="0.0" y="64.999999999999943" width="311" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="e19-w8-h06"/>
                                                         </constraints>
@@ -255,6 +255,9 @@
                         <viewLayoutGuide key="safeArea" id="3LB-8y-Ogh"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="UD9-CW-ysd">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="W5h-VI-7oA"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8U-Io-qjs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,12 +266,14 @@
         <!--Navigation Controller-->
         <scene sceneID="8gH-K0-d7W">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lSY-0S-tEa" sceneMemberID="viewController">
+                <navigationController id="lSY-0S-tEa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WW9-XW-R8O">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
