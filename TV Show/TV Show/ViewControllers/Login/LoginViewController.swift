@@ -32,19 +32,12 @@ final class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         
-      // Backround color is #52368C
-      //      self.view.backgroundColor = UIColor(red: 82/250.0, green: 54/250.0, blue: 140/250.0, alpha: 1)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         
         //Looks for single or multiple taps.
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
-        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
-
         view.addGestureRecognizer(tap)
 
     }
@@ -60,15 +53,12 @@ final class LoginViewController: UIViewController {
     // Checkbox button for Remember me
     
     @IBAction private func checkButton(_ sender: Any) {
-        if (!checkedButton) {
-            
-            checkBoxButton.setImage(UIImage (named: "ic-checkbox-selected"), for: .normal)
-            checkedButton = true
-            
-        } else {
-            
+        if checkedButton {
             checkBoxButton.setImage(UIImage (named: "ic-checkbox-unselected"), for: .normal)
             checkedButton = false
+        } else {
+            checkBoxButton.setImage(UIImage (named: "ic-checkbox-selected"), for: .normal)
+            checkedButton = true
         }
         
     }
@@ -78,17 +68,13 @@ final class LoginViewController: UIViewController {
     @IBAction func showPassword(_ sender: Any) {
         
         if isPasswordHidden {
-            
             showPasswordButton.setImage(UIImage (named: "ic-invisible"), for: .normal)
             isPasswordHidden = false
             passwordTextField.isSecureTextEntry = false
-            
         } else {
-            
             showPasswordButton.setImage(UIImage (named: "ic-visible"), for: .normal)
             isPasswordHidden = true
             passwordTextField.isSecureTextEntry = true
-            
         }
     }
     
