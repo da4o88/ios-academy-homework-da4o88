@@ -251,9 +251,9 @@ final class LoginViewController: UIViewController {
             guard let self = self else {return}
             MBProgressHUD.hide(for: self.view, animated: true)
             switch response.result {
-            case .success(let response):
+            case .success(let userInfo):
                 self.pushToHomeScreen()
-                print(response.user.email)
+                self.userData = userInfo.user
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
