@@ -29,6 +29,7 @@ final class LoginViewController: UIViewController {
     private var emailPassFieldEmpty = true
     private var email = ""
     private var password = ""
+    private var userData: User? = nil
     
     // MARK: - Lifecycle methods
     
@@ -199,11 +200,22 @@ final class LoginViewController: UIViewController {
             guard let self = self else {return}
             MBProgressHUD.hide(for: self.view, animated: true)
             switch response.result {
-            case .success(let response):
+            case .success(let userInfo):
                 self.pushToHomeScreen()
-                print("API Response ---")
-                print("Success: \(response)")
-                print(response.user.email)
+                
+                // Store data from API respons to variable
+                self.userData = userInfo.user
+                
+                // Additional checks for headers
+                
+                let headers = response.response?.headers.dictionary ?? [:]
+                
+                guard let authInfo = try? AuthInfo(headers: headers) else {
+                    print("Missing headers")
+                            return
+                        }
+                        print("\(self.userData)\n\n\(authInfo)")
+               
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
