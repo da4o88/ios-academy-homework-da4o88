@@ -35,8 +35,7 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        showHideKeyboard()
         
         //Looks for single or multiple taps.
         
@@ -92,7 +91,6 @@ final class LoginViewController: UIViewController {
     @IBAction func didTapLoginButton(_ sender: Any) {
         
         validateEmailPassword()
-        
         if !emailPassFieldEmpty {
             signIn()
         }
@@ -103,7 +101,6 @@ final class LoginViewController: UIViewController {
     @IBAction func didTapRegisterButton(_ sender: Any) {
         
         validateEmailPassword()
-        
         if !emailPassFieldEmpty {
             registerUser()
         }
@@ -160,20 +157,33 @@ final class LoginViewController: UIViewController {
         
     }
     
+    // Show-Hide Keyboard
+    func showHideKeyboard() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
     // Validate email and password
     
     func validateEmailPassword() {
         
-        email = emailTextField.text!
-        password = passwordTextField.text!
+        guard
+            let emailText = emailTextField.text,
+            let passwordText = passwordTextField.text else { return }
+        email = emailText
+        password = passwordText
         
         if !email.isEmpty && !password.isEmpty {
             emailPassFieldEmpty = false
         } else {
             emailPassFieldEmpty = true
         }
+//        emailPassFieldEmpty = email.isEmpty || password.isEmpty
     }
     
+    // MARK: - Call API requests
     // Login User call to API
     
     func signIn() {
@@ -214,7 +224,7 @@ final class LoginViewController: UIViewController {
                     print("Missing headers")
                             return
                         }
-                        print("\(self.userData)\n\n\(authInfo)")
+                    print("\(String(describing: self.userData))\n\n\(authInfo)")
                
             case .failure(let error):
                 print("API Error ---")
