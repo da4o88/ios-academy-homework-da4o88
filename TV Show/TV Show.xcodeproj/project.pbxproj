@@ -14,6 +14,7 @@
 		42B19EA02875F82000EB4836 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B19E9F2875F82000EB4836 /* ViewController.swift */; };
 		42B19EA52875F82200EB4836 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B19EA42875F82200EB4836 /* Assets.xcassets */; };
 		42B19EA82875F82200EB4836 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B19EA62875F82200EB4836 /* LaunchScreen.storyboard */; };
+		74BB6648AF7B23009028BFF9 /* Pods_TV_Show.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAAB7B7F152CFE1849B5765 /* Pods_TV_Show.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		42B19EA42875F82200EB4836 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42B19EA72875F82200EB4836 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42B19EA92875F82200EB4836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A73CF2C284F0B27B917B2283 /* Pods-TV Show.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Show.release.xcconfig"; path = "Target Support Files/Pods-TV Show/Pods-TV Show.release.xcconfig"; sourceTree = "<group>"; };
+		BE3107D1077911F4E916C452 /* Pods-TV Show.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Show.debug.xcconfig"; path = "Target Support Files/Pods-TV Show/Pods-TV Show.debug.xcconfig"; sourceTree = "<group>"; };
+		EBAAB7B7F152CFE1849B5765 /* Pods_TV_Show.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TV_Show.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74BB6648AF7B23009028BFF9 /* Pods_TV_Show.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24219CE06E59CE69C8C445BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BE3107D1077911F4E916C452 /* Pods-TV Show.debug.xcconfig */,
+				A73CF2C284F0B27B917B2283 /* Pods-TV Show.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		293363378FE2996FE5F81719 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBAAB7B7F152CFE1849B5765 /* Pods_TV_Show.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		427277F8287853350057F632 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +75,8 @@
 			children = (
 				42B19E9A2875F82000EB4836 /* TV Show */,
 				42B19E992875F82000EB4836 /* Products */,
+				24219CE06E59CE69C8C445BC /* Pods */,
+				293363378FE2996FE5F81719 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,7 +91,7 @@
 		42B19E9A2875F82000EB4836 /* TV Show */ = {
 			isa = PBXGroup;
 			children = (
-				427277F8287853350057F632 /* Login */,
+				42B4EDB32880432000AB1DDE /* ViewControllers */,
 				42B19E9B2875F82000EB4836 /* AppDelegate.swift */,
 				42B19E9D2875F82000EB4836 /* SceneDelegate.swift */,
 				42B19E9F2875F82000EB4836 /* ViewController.swift */,
@@ -78,6 +102,14 @@
 			path = "TV Show";
 			sourceTree = "<group>";
 		};
+		42B4EDB32880432000AB1DDE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				427277F8287853350057F632 /* Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42B19EAC2875F82200EB4836 /* Build configuration list for PBXNativeTarget "TV Show" */;
 			buildPhases = (
+				94BD2BA854A2B39C3B3A3AF8 /* [CP] Check Pods Manifest.lock */,
 				42B19E942875F82000EB4836 /* Sources */,
 				42B19E952875F82000EB4836 /* Frameworks */,
 				42B19E962875F82000EB4836 /* Resources */,
+				8EFD74EBAB6A3B54B4F17D2F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -143,6 +177,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8EFD74EBAB6A3B54B4F17D2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TV Show/Pods-TV Show-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TV Show/Pods-TV Show-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TV Show/Pods-TV Show-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94BD2BA854A2B39C3B3A3AF8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TV Show-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		42B19E942875F82000EB4836 /* Sources */ = {
@@ -286,6 +362,7 @@
 		};
 		42B19EAD2875F82200EB4836 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE3107D1077911F4E916C452 /* Pods-TV Show.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,6 +392,7 @@
 		};
 		42B19EAE2875F82200EB4836 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A73CF2C284F0B27B917B2283 /* Pods-TV Show.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
