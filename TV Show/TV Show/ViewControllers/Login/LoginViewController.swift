@@ -30,7 +30,7 @@ final class LoginViewController: UIViewController {
     private var email = ""
     private var password = ""
     private var userData: User? = nil
-    private var userHeaders: AuthInfo? = nil
+//    private var userHeaders: AuthInfo? = nil
     
     // MARK: - Lifecycle methods
     
@@ -177,7 +177,6 @@ final class LoginViewController: UIViewController {
             switch response.result {
             case .success(let userInfo):
                 self.pushToHomeScreen()
-                
                 // Store data from API response to variable
                 self.userData = userInfo.user
                 let headers = response.response?.headers.dictionary ?? [:]
@@ -186,11 +185,9 @@ final class LoginViewController: UIViewController {
                             return
                         }
                     print("\(String(describing: self.userData))\n\n\(authInfo)")
-
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
-              
             }
         }
     }
@@ -219,6 +216,12 @@ final class LoginViewController: UIViewController {
             case .success(let userInfo):
                 self.pushToHomeScreen()
                 self.userData = userInfo.user
+                let headers = response.response?.headers.dictionary ?? [:]
+                guard let authInfo = try? AuthInfo(headers: headers) else {
+                    print("Missing headers")
+                            return
+                        }
+                    print("\(String(describing: self.userData))\n\n\(authInfo)")
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
