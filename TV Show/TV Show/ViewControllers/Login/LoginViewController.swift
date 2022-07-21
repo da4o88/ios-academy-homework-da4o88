@@ -30,6 +30,7 @@ final class LoginViewController: UIViewController {
     private var email = ""
     private var password = ""
     private var userData: User? = nil
+    private var userHeaders: AuthInfo? = nil
     
     // MARK: - Lifecycle methods
     
@@ -38,17 +39,14 @@ final class LoginViewController: UIViewController {
         showHideKeyboard()
         
         //Looks for single or multiple taps.
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
- 
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         roundedButtons()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,7 +57,6 @@ final class LoginViewController: UIViewController {
     // MARK: - Actions
     
     // Checkbox button for Remember me
-    
     @IBAction private func checkButton(_ sender: Any) {
         if checkedButton {
             checkBoxButton.setImage(UIImage (named: "ic-checkbox-unselected"), for: .normal)
@@ -72,7 +69,6 @@ final class LoginViewController: UIViewController {
     }
     
     // Show - Hide password
-    
     @IBAction func showPassword(_ sender: Any) {
         if isPasswordHidden {
             showPasswordButton.setImage(UIImage (named: "ic-invisible"), for: .normal)
@@ -86,20 +82,14 @@ final class LoginViewController: UIViewController {
     }
     
     // Login and Register Section
-    // Login Button Action
-    
     @IBAction func didTapLoginButton(_ sender: Any) {
-        
         validateEmailPassword()
         if !emailPassFieldEmpty {
             signIn()
         }
     }
     
-    // Register Button Action
-    
     @IBAction func didTapRegisterButton(_ sender: Any) {
-        
         validateEmailPassword()
         if !emailPassFieldEmpty {
             registerUser()
@@ -109,18 +99,13 @@ final class LoginViewController: UIViewController {
     // MARK: - Utility methods
     
     // Create round edges on button
-    
     private func roundedButtons() -> Void {
-        
         loginButton.layer.cornerRadius = 24
         loginButton.layer.masksToBounds = true
-        
     }
     
     // Show-Hide keyboard
-    
     @objc func keyboardWillShow(notification:NSNotification) {
-
         guard let userInfo = notification.userInfo else { return }
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
@@ -128,47 +113,33 @@ final class LoginViewController: UIViewController {
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height + 20
         scrollView.contentInset = contentInset
-        
     }
     
     @objc func keyboardWillHide(notification:NSNotification) {
-
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
-        
     }
     
     //Calls this function when the tap is recognized.
-    
     @objc func dismissKeyboard() {
-        
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        
         view.endEditing(true)
     }
     
     // Push to HomeScreenController
-    
     func pushToHomeScreen() {
-        
         let homeScreen = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
         homeScreen.navigationItem.largeTitleDisplayMode = .never
         self.navigationController?.pushViewController(homeScreen, animated: true)
-        
     }
     
     // Show-Hide Keyboard
     func showHideKeyboard() {
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
-        
     }
     
     // Validate email and password
-    
     func validateEmailPassword() {
-        
         guard
             let emailText = emailTextField.text,
             let passwordText = passwordTextField.text else { return }
@@ -180,27 +151,21 @@ final class LoginViewController: UIViewController {
         } else {
             emailPassFieldEmpty = true
         }
-//        emailPassFieldEmpty = email.isEmpty || password.isEmpty
     }
     
-    // MARK: - Call API requests
-    // Login User call to API
+    // MARK: - API requests
     
     func signIn() {
-        
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        
-        // Alamofire
-        
+        let requestUrl = "https://tv-shows.infinum.academy/users/sign_in"
         let parameters: [String: String?] = [
-            
             "email": email,
             "password": password
         ]
                 
         AF
             .request(
-            "https://tv-shows.infinum.academy/users/sign_in",
+            requestUrl,
             method: HTTPMethod.post,
             parameters: parameters,
             encoder: JSONParameterEncoder.default
@@ -213,19 +178,15 @@ final class LoginViewController: UIViewController {
             case .success(let userInfo):
                 self.pushToHomeScreen()
                 
-                // Store data from API respons to variable
+                // Store data from API response to variable
                 self.userData = userInfo.user
-                
-                // Additional checks for headers
-                
                 let headers = response.response?.headers.dictionary ?? [:]
-                
                 guard let authInfo = try? AuthInfo(headers: headers) else {
                     print("Missing headers")
                             return
                         }
                     print("\(String(describing: self.userData))\n\n\(authInfo)")
-               
+
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
@@ -234,16 +195,10 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    // Register User call to API
-    
     func registerUser() {
-        
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        
-        // Alamofire
-        
+        let userRegisterUrl = "https://tv-shows.infinum.academy/users"
         let parameters: [String: String?] = [
-            
             "email": email,
             "password": password,
             "password_confirmation": password
@@ -251,7 +206,7 @@ final class LoginViewController: UIViewController {
                 
         AF
             .request(
-            "https://tv-shows.infinum.academy/users",
+            userRegisterUrl,
             method: HTTPMethod.post,
             parameters: parameters,
             encoder: JSONParameterEncoder.default
