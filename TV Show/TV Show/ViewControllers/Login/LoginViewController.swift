@@ -30,7 +30,6 @@ final class LoginViewController: UIViewController {
     private var email = ""
     private var password = ""
     private var userData: User? = nil
-//    private var userHeaders: AuthInfo? = nil
     
     // MARK: - Lifecycle methods
     
