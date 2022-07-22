@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
     
     // MARK: - Utility methods
     
-    
+    func callHeaders() {
+       
+    }
  
 }
