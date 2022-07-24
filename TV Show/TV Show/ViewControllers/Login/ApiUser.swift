@@ -44,11 +44,22 @@ struct AuthInfo: Codable {
         case uid = "uid"
     }
 
-//    // MARK: Helpers
-//
+  // MARK: - Helpers
+
     init(headers: [String: String]) throws {
         let data = try JSONSerialization.data(withJSONObject: headers, options: .prettyPrinted)
         let decoder = JSONDecoder()
         self = try decoder.decode(Self.self, from: data)
     }
+
+    var headers: [String: String] {
+            do {
+                let data = try JSONEncoder().encode(self)
+                let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
+                return jsonObject as? [String: String] ?? [:]
+            } catch {
+                return [:]
+            }
+        }
 }
+
