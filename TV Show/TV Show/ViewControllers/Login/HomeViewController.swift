@@ -24,6 +24,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.navigationItem.title = "Shows"
+        self.navigationItem.setHidesBackButton(true, animated: true)
         tvShows()
         
     }
@@ -35,6 +37,7 @@ class HomeViewController: UIViewController {
     // MARK: - Utility methods
     
     func tvShows() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         let urlRequest = "https://tv-shows.infinum.academy/shows"
         AF
           .request(
@@ -45,6 +48,7 @@ class HomeViewController: UIViewController {
           )
           .validate()
             .responseDecodable(of: ShowsResponse.self) { response in
+                MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let shows):
                     print("This is response: \(shows)")
@@ -56,4 +60,6 @@ class HomeViewController: UIViewController {
         
     }
 }
+
+
 
