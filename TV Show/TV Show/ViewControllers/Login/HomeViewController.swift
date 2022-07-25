@@ -13,11 +13,15 @@ import MBProgressHUD
 class HomeViewController: UIViewController {
     
     // MARK: - Outlets
-    
+   
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
-    
+
     var userHeaders: [String: String] = [:]
+    var tableViewData: [ShowsResponse] = []
+    
+    private let items = Array(repeating: "Cell", count: 100)
     
     // MARK: - Lifecycle methods
     
@@ -27,6 +31,7 @@ class HomeViewController: UIViewController {
         self.navigationItem.title = "Shows"
         self.navigationItem.setHidesBackButton(true, animated: true)
         tvShows()
+        tableView.dataSource = self
         
     }
     
@@ -47,11 +52,14 @@ class HomeViewController: UIViewController {
               headers: HTTPHeaders(userHeaders)
           )
           .validate()
-            .responseDecodable(of: ShowsResponse.self) { response in
+            .responseDecodable(of: ShowsResponse.self) { [weak self] response in
+                guard let self = self else {return}
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let shows):
                     print("This is response: \(shows)")
+//                    self.tableViewData = shows.shows[$1]
+                    
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }
@@ -61,5 +69,17 @@ class HomeViewController: UIViewController {
     }
 }
 
+
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    
+}
 
 
