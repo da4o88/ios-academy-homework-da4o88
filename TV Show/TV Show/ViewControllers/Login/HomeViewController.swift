@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         tvShows()
         tableView.dataSource = self
+        tableView.delegate = self
         
     }
     
@@ -57,8 +58,9 @@ class HomeViewController: UIViewController {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let shows):
-                    print("This is response: \(shows)")
-//                    self.tableViewData = shows.shows[$1]
+                   
+                    print("news: \(shows.shows)")
+//                    print("This is response: \(shows)")
                     
                 case .failure(let error):
                     print("Response failed! \(error)")
@@ -76,10 +78,22 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TvShowsTableViewCell.self), for: indexPath) as! TvShowsTableViewCell
+        return cell
     }
     
     
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("selected cell at \(indexPath.row)")
+    }
 }
 
 

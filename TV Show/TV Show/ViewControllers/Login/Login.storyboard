@@ -257,7 +257,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hFT-4h-GFr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TvShowsTableViewCell" id="hFT-4h-GFr" customClass="TvShowsTableViewCell" customModule="TV_Show" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hFT-4h-GFr" id="KCa-Ap-gvj">
@@ -279,6 +279,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="VLP-bS-DXX" secondAttribute="bottom" constant="8" id="pBN-wR-dsf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="VLP-bS-DXX" id="KzU-k5-Nrt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
