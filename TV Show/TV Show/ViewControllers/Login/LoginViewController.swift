@@ -36,6 +36,7 @@ final class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         showHideKeyboard()
         
         //Looks for single or multiple taps.

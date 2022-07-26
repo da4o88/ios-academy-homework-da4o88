@@ -19,9 +19,9 @@ class HomeViewController: UIViewController {
     // MARK: - Properties
 
     var userHeaders: [String: String] = [:]
-    var tableViewData: [ShowsResponse] = []
+    var tableViewData: [Show] = []
     
-    private let items = Array(repeating: "Cell", count: 100)
+    //private let items = Array(repeating: "Cell", count: 100)
     
     // MARK: - Lifecycle methods
     
@@ -57,10 +57,11 @@ class HomeViewController: UIViewController {
                 guard let self = self else {return}
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
-                case .success(let shows):
+                case .success(let tvShows):
                    
-                    print("news: \(shows.shows)")
-//                    print("This is response: \(shows)")
+                    self.tableViewData = tvShows.shows
+                    self.tableView.reloadData()
+                    print("news: \(tvShows.shows)")
                     
                 case .failure(let error):
                     print("Response failed! \(error)")
@@ -74,11 +75,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return tableViewData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TvShowsTableViewCell.self), for: indexPath) as! TvShowsTableViewCell
+        
+        cell.titleLabel.text = tableViewData[indexPath.row].title
         return cell
     }
     
