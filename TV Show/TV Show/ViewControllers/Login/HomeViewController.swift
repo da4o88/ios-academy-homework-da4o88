@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Alamofire
 import MBProgressHUD
+import Kingfisher
 
 class HomeViewController: UIViewController {
     
@@ -20,8 +21,6 @@ class HomeViewController: UIViewController {
 
     var userHeaders: [String: String] = [:]
     var tableViewData: [Show] = []
-    
-    //private let items = Array(repeating: "Cell", count: 100)
     
     // MARK: - Lifecycle methods
     
@@ -35,9 +34,6 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         
     }
-    
-    // MARK: - Actions
-    
 }
 
 extension HomeViewController {
@@ -80,10 +76,12 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TvShowsTableViewCell.self), for: indexPath) as! TvShowsTableViewCell
         
-//        let data = tableViewData[indexPath.row]
-        cell.titleLabel.text = tableViewData[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TvShowsTableViewCell.self), for: indexPath) as! TvShowsTableViewCell
+        let data = tableViewData[indexPath.row]
+        let url = URL(string: data.imageUrl!)
+        cell.showImage.kf.setImage(with: url)
+        cell.titleLabel.text = data.title
         return cell
     }
     
