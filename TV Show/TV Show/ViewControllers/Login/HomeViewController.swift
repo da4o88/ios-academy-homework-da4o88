@@ -38,7 +38,9 @@ class HomeViewController: UIViewController {
     
     // MARK: - Actions
     
-   
+}
+
+extension HomeViewController {
     
     // MARK: - Utility methods
     
@@ -72,7 +74,6 @@ class HomeViewController: UIViewController {
     }
 }
 
-
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewData.count
@@ -98,5 +99,3 @@ extension HomeViewController: UITableViewDelegate {
         print("selected cell at \(indexPath.row)")
     }
 }
-
-
