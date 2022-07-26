@@ -1,0 +1,51 @@
+//
+//  API_User.swift
+//  TV Show
+//
+//  Created by infinum on 18/07/2022.
+//
+
+import UIKit
+
+// MARK: - User
+
+struct UserResponse: Decodable {
+    let user: User
+}
+
+struct User: Decodable {
+    let email: String
+    let id: String
+    let imageUrl: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case email
+        case imageUrl = "image_url"
+        case id
+    }
+}
+
+struct AuthInfo: Codable {
+
+    let accessToken: String
+    let client: String
+    let tokenType: String
+    let expiry: String
+    let uid: String
+
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access-token"
+        case client = "client"
+        case tokenType = "token-type"
+        case expiry = "expiry"
+        case uid = "uid"
+    }
+
+    // MARK: Helpers
+
+    init(headers: [String: String]) throws {
+        let data = try JSONSerialization.data(withJSONObject: headers, options: .prettyPrinted)
+        let decoder = JSONDecoder()
+        self = try decoder.decode(Self.self, from: data)
+    }
+}
