@@ -82,6 +82,7 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TvShowsTableViewCell.self), for: indexPath) as! TvShowsTableViewCell
         
+//        let data = tableViewData[indexPath.row]
         cell.titleLabel.text = tableViewData[indexPath.row].title
         return cell
     }
@@ -99,3 +100,4 @@ extension HomeViewController: UITableViewDelegate {
         print("selected cell at \(indexPath.row)")
     }
 }
+

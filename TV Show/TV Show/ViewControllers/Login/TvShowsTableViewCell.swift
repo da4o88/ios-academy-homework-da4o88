@@ -11,6 +11,6 @@ class TvShowsTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var showImage: UIImageView!
     
-
 }
