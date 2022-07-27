@@ -55,11 +55,6 @@ final class LoginViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
-
-}
-
-extension LoginViewController {
-    
     // MARK: - Actions
     
     // Checkbox button for Remember me
@@ -101,6 +96,8 @@ extension LoginViewController {
             registerUser()
         }
     }
+    
+
 }
 
 extension LoginViewController {

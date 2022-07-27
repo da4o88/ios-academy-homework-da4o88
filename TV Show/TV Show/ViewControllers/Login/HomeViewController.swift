@@ -34,6 +34,12 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
+    }
 }
 
 extension HomeViewController {
@@ -58,7 +64,7 @@ extension HomeViewController {
                 case .success(let tvShows):
                     self.tableViewData = tvShows.shows
                     self.tableView.reloadData()
-                    print("news: \(tvShows.shows)")
+//                    print("news: \(tvShows.shows)")
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }
@@ -93,7 +99,21 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        pushToShowScreen()
         print("selected cell at \(indexPath.row)")
     }
 }
 
+extension HomeViewController {
+    
+    // MARK: - Utility
+    
+    func pushToShowScreen() {
+        let showScreen = self.storyboard?.instantiateViewController(withIdentifier: "ShowScreen") as! ShowDetailsViewController
+        showScreen.navigationItem.largeTitleDisplayMode = .never
+        showScreen.navigationController?.isNavigationBarHidden = false
+//        homeScreen.userHeaders = headers
+        self.navigationController?.pushViewController(showScreen, animated: true)
+        
+    }
+}
