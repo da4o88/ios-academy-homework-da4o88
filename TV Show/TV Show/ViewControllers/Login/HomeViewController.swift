@@ -25,8 +25,8 @@ class HomeViewController: UIViewController {
     // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         self.navigationItem.title = "Shows"
         self.navigationItem.setHidesBackButton(true, animated: true)
         tvShows()
@@ -56,11 +56,9 @@ extension HomeViewController {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let tvShows):
-                   
                     self.tableViewData = tvShows.shows
                     self.tableView.reloadData()
                     print("news: \(tvShows.shows)")
-                    
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }

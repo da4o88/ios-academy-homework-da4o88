@@ -55,6 +55,11 @@ final class LoginViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+
+}
+
+extension LoginViewController {
+    
     // MARK: - Actions
     
     // Checkbox button for Remember me
@@ -96,6 +101,9 @@ final class LoginViewController: UIViewController {
             registerUser()
         }
     }
+}
+
+extension LoginViewController {
     
     // MARK: - Utility methods
     
@@ -154,6 +162,9 @@ final class LoginViewController: UIViewController {
             emailPassFieldEmpty = true
         }
     }
+}
+
+extension LoginViewController {
     
     // MARK: - API requests
     
@@ -200,15 +211,11 @@ final class LoginViewController: UIViewController {
 // Headers will be used for subsequent authorization on next requests
     func handleSuccesfulLogin(for user: User, headers: [String: String]) {
         guard let authInfo = try? AuthInfo(headers: headers) else {
-//            infoLabel.text = "Missing headers"
             print("Missing Headers")
             return
         }
             print("\(user)\n\n\(authInfo)")
         self.headers = authInfo.headers
-     
-        
-//        infoLabel.text = "\(user)\n\n\(authInfo)"
     }
     
     func registerUser() {
@@ -233,14 +240,10 @@ final class LoginViewController: UIViewController {
             MBProgressHUD.hide(for: self.view, animated: true)
             switch response.result {
             case .success(let userInfo):
-                self.pushToHomeScreen()
                 self.userData = userInfo.user
                 let headers = response.response?.headers.dictionary ?? [:]
-                guard let authInfo = try? AuthInfo(headers: headers) else {
-                    print("Missing headers")
-                            return
-                        }
-                    print("\(String(describing: self.userData))\n\n\(authInfo)")
+                self.handleSuccesfulLogin(for: userInfo.user, headers: headers)
+                self.pushToHomeScreen()
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
