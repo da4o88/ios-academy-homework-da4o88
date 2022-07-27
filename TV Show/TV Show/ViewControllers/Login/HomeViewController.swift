@@ -99,6 +99,7 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        // send data object at selected indexPath
         pushToShowScreen()
         print("selected cell at \(indexPath.row)")
     }
