@@ -84,12 +84,10 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TvShowsTableViewCell.self), for: indexPath) as! TvShowsTableViewCell
         let data = tableViewData[indexPath.row]
         let url = URL(string: data.imageUrl!)
-        cell.showImage.kf.setImage(with: url)
+        cell.showImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-show-placeholder-vertical"))
         cell.titleLabel.text = data.title
         return cell
     }
-    
-    
 }
 
 extension HomeViewController: UITableViewDelegate {
@@ -100,8 +98,8 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // send data object at selected indexPath
-        pushToShowScreen()
-        print("selected cell at \(indexPath.row)")
+        let dataShow = tableViewData[indexPath.row]
+        pushToShowScreen(data: dataShow)
     }
 }
 
@@ -109,10 +107,11 @@ extension HomeViewController {
     
     // MARK: - Utility
     
-    func pushToShowScreen() {
+    func pushToShowScreen(data: Show) {
         let showScreen = self.storyboard?.instantiateViewController(withIdentifier: "ShowScreen") as! ShowDetailsViewController
         showScreen.navigationItem.largeTitleDisplayMode = .never
         showScreen.navigationController?.isNavigationBarHidden = false
+        showScreen.showData = data
 //        homeScreen.userHeaders = headers
         self.navigationController?.pushViewController(showScreen, animated: true)
         

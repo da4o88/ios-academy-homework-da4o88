@@ -6,16 +6,23 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ShowTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
+//    @IBOutlet weak var showImage: UIImageView!
+//    @IBOutlet weak var showDescription: UILabel!
+//    @IBOutlet weak var numOfReviews: UILabel!
+//    @IBOutlet weak var averageNumber: UILabel!
+//    @IBOutlet weak var starsReviews: UIStackView!
+    
+ 
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showDescription: UILabel!
-    @IBOutlet weak var numOfReviews: UILabel!
-    @IBOutlet weak var averageNumber: UILabel!
-    @IBOutlet weak var starsReviews: UIStackView!
+    @IBOutlet weak var showReviews: UILabel!
+    
     
     //    override func awakeFromNib() {
 //        super.awakeFromNib()
@@ -27,7 +34,6 @@ class ShowTableViewCell: UITableViewCell {
 //
 //        // Configure the view for the selected state
 //    }
-
     
     
 }
