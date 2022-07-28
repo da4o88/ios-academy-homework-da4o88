@@ -24,6 +24,17 @@ class ShowTableViewCell: UITableViewCell {
     @IBOutlet weak var showReviews: UILabel!
     @IBOutlet weak var showNumOfReviews: UILabel!
     
+    
+    // MARK: - Properties
+    
+//    var starImages: [UIImage] = [
+//        UIImage(named: "ic-star-deselected")!,
+//        UIImage(named: "ic-star-deselected")!,
+//        UIImage(named: "ic-star-deselected")!,
+//        UIImage(named: "ic-star-deselected")!,
+//        UIImage(named: "ic-star-deselected")!
+//    ]
+    
     //    override func awakeFromNib() {
 //        super.awakeFromNib()
 //        // Initialization code
@@ -34,6 +45,8 @@ class ShowTableViewCell: UITableViewCell {
 //
 //        // Configure the view for the selected state
 //    }
+    
+
     
     
 }

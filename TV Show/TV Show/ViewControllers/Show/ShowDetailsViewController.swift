@@ -21,6 +21,16 @@ class ShowDetailsViewController: UIViewController {
     var showData: Show? = nil
 //    var showData: AnyObject = [] as AnyObject
     
+    // MARK: - Properties
+    
+    var starImages: [UIImage] = [
+          UIImage(named: "ic-star-deselected")!,
+          UIImage(named: "ic-star-deselected")!,
+          UIImage(named: "ic-star-deselected")!,
+          UIImage(named: "ic-star-deselected")!,
+          UIImage(named: "ic-star-deselected")!
+      ]
+    
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +73,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
         cellShow.showNumOfReviews.text = "\(String(describing: numOfReviews!))   REVIEWS   \(String(describing: numOfAverageReviews!))    AVERAGE"
 //        cellShow.showReviews.text = "\(String(describing: showData!.numOfReviews))"
         
+        
 
         return cellShow
     }
@@ -86,6 +97,7 @@ extension ShowDetailsViewController: UITableViewDelegate {
 
 extension ShowDetailsViewController {
     
+
 
     
 //    // MARK: - Utility
