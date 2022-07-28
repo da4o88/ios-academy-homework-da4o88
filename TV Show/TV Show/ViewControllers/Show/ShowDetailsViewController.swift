@@ -116,53 +116,6 @@ extension ShowDetailsViewController: UITableViewDelegate {
     }
 }
 
-
-
-
-
-
-
-
-
-
-    // MARK: - BEFORE Two TableViewCells
-//extension ShowDetailsViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        // pass data info for show
-//        let cellShow = tableView.dequeueReusableCell(withIdentifier: String(describing: ShowTableViewCell.self) , for: indexPath) as! ShowTableViewCell
-//        let url = URL(string: (showData?.imageUrl)!)
-//        cellShow.showImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-show-placeholder-vertical"))
-//        cellShow.showDescription.text = showData?.description
-//        cellShow.showReviews.text = "Reviews"
-//        print("showData: \(String(describing: showData))")
-//        let numOfReviews = showData?.numOfReviews
-//        let numOfAverageReviews = showData?.averageRating
-//
-//        cellShow.showNumOfReviews.text = "\(String(describing: numOfReviews!))   REVIEWS   \(String(describing: numOfAverageReviews!))    AVERAGE"
-////        cellShow.showReviews.text = "\(String(describing: showData!.numOfReviews))"
-//
-//
-//
-//        return cellShow
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // Add what is needed to return  1
-//        return 0
-//    }
-//}
-//
-//extension ShowDetailsViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        // Change to dynamic  Here check again
-//        return UITableView.automaticDimension
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("selected shows")
-//    }
-//}
-
 extension ShowDetailsViewController {
     
     

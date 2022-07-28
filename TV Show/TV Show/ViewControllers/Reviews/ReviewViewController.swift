@@ -20,26 +20,28 @@ class ReviewViewController: UIViewController {
 
 
     // MARK: - Lifecycle methods
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//
-//        self.navigationItem.title = "Shows"
-        self.navigationItem.setHidesBackButton(false, animated: true)
-       
-//
+        
     }
-//
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        self.navigationController?.isNavigationBarHidden = false
-//    }
-//}
-
-}
-
-extension ReviewViewController {
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.title = "Write a Review"
+        navigationItem.largeTitleDisplayMode = .always
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 }
+//
+//}
+//
+//extension ReviewViewController {
+//
+//
+//}

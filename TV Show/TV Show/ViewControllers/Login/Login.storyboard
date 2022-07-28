@@ -457,25 +457,26 @@
                                     <outlet property="delegate" destination="xNJ-fC-O4J" id="Bw9-22-4LD"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzY-uC-NQC">
-                                <rect key="frame" x="150" y="723" width="124.33333333333331" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWq-5x-Bs2">
+                                <rect key="frame" x="10" y="733" width="355" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="KQ8-uU-7ri"/>
+                                    <constraint firstAttribute="height" constant="35" id="Nty-wP-OoW"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Write a Rreview"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Write a Review" cornerStyle="medium"/>
                                 <connections>
-                                    <action selector="didTapBUttonReview:" destination="xNJ-fC-O4J" eventType="touchUpInside" id="RyN-Rh-ofx"/>
+                                    <action selector="didTapBUttonReview:" destination="xNJ-fC-O4J" eventType="touchUpInside" id="bRO-Yx-ox8"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FVG-5B-8Qb"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
-                            <constraint firstItem="VzY-uC-NQC" firstAttribute="leading" secondItem="T7X-80-QTr" secondAttribute="leading" constant="150" id="2Vp-Db-RVS"/>
-                            <constraint firstItem="T7X-80-QTr" firstAttribute="trailing" secondItem="VzY-uC-NQC" secondAttribute="trailing" constant="100.66666666666669" id="4YL-rt-Itc"/>
+                            <constraint firstItem="FVG-5B-8Qb" firstAttribute="trailing" secondItem="cWq-5x-Bs2" secondAttribute="trailing" constant="10" id="Q3b-03-lCz"/>
                             <constraint firstItem="T7X-80-QTr" firstAttribute="leading" secondItem="4HT-Ky-XyF" secondAttribute="leading" id="QTF-sh-uIs"/>
-                            <constraint firstItem="FVG-5B-8Qb" firstAttribute="bottom" secondItem="VzY-uC-NQC" secondAttribute="bottom" constant="10" id="eiZ-7g-GRP"/>
+                            <constraint firstItem="cWq-5x-Bs2" firstAttribute="centerX" secondItem="FVG-5B-8Qb" secondAttribute="centerX" id="YZi-hQ-8Wy"/>
+                            <constraint firstItem="FVG-5B-8Qb" firstAttribute="bottom" secondItem="cWq-5x-Bs2" secondAttribute="bottom" constant="10" id="ae1-Bt-FmA"/>
+                            <constraint firstItem="cWq-5x-Bs2" firstAttribute="leading" secondItem="FVG-5B-8Qb" secondAttribute="leading" constant="10" id="hPh-Hh-owN"/>
                             <constraint firstItem="T7X-80-QTr" firstAttribute="bottom" secondItem="FVG-5B-8Qb" secondAttribute="bottom" id="kKE-Wz-UqA"/>
                             <constraint firstAttribute="trailing" secondItem="T7X-80-QTr" secondAttribute="trailing" id="oQT-sV-2cW"/>
                             <constraint firstItem="T7X-80-QTr" firstAttribute="top" secondItem="FVG-5B-8Qb" secondAttribute="top" id="ta9-tI-mtf"/>
