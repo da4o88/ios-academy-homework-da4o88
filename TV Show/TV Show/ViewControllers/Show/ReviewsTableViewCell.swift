@@ -8,6 +8,8 @@
 import UIKit
 
 class ReviewsTableViewCell: UITableViewCell {
+    
+    static let identifier = "ReviewsTableViewCell"
 
     // MARK: - Outlets
   
@@ -15,6 +17,5 @@ class ReviewsTableViewCell: UITableViewCell {
     @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var ratingStars: UILabel!
     @IBOutlet weak var userComments: UILabel!
-    
     
 }

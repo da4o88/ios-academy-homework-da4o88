@@ -377,17 +377,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="showDescription" destination="dXR-G3-jkw" id="0vT-E0-Mfq"/>
-                                            <outlet property="showImage" destination="n0S-es-X3p" id="DbQ-e4-UQx"/>
-                                            <outlet property="showNumOfReviews" destination="hIT-84-4d3" id="tXO-R7-3E5"/>
-                                            <outlet property="showReviews" destination="vnu-9k-Eh3" id="gVr-bi-v8v"/>
+                                            <outlet property="showDescription" destination="dXR-G3-jkw" id="Xg1-H8-Y0m"/>
+                                            <outlet property="showImage" destination="n0S-es-X3p" id="9NS-dY-6k5"/>
+                                            <outlet property="showNumOfReviews" destination="hIT-84-4d3" id="d6j-ED-sUf"/>
+                                            <outlet property="showReviews" destination="vnu-9k-Eh3" id="6rj-dA-abs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="238" id="gL1-CO-Xex" customClass="ReviewsTableViewCell" customModule="TV_Show" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="332.66666603088379" width="367" height="238"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewsTableViewCell" rowHeight="400" id="gL1-CO-Xex" customClass="ReviewsTableViewCell" customModule="TV_Show" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="332.66666603088379" width="367" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gL1-CO-Xex" id="dAm-pc-ysF">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="238"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="367" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-LH-sl9">
@@ -441,13 +441,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="profileImage" destination="kH6-27-Fb7" id="cyW-lr-Z9N"/>
-                                            <outlet property="ratingStars" destination="I7k-yD-r9j" id="bg1-8B-0dk"/>
-                                            <outlet property="userComments" destination="5AJ-6e-Ft0" id="iCu-xp-2lX"/>
-                                            <outlet property="userId" destination="loj-iT-WfQ" id="jgu-32-gaS"/>
+                                            <outlet property="profileImage" destination="kH6-27-Fb7" id="yfg-yt-uoh"/>
+                                            <outlet property="ratingStars" destination="I7k-yD-r9j" id="cRS-CE-efl"/>
+                                            <outlet property="userComments" destination="5AJ-6e-Ft0" id="rSt-ft-VHz"/>
+                                            <outlet property="userId" destination="loj-iT-WfQ" id="2yh-Nx-KPG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xNJ-fC-O4J" id="cQi-5E-QWq"/>
+                                    <outlet property="delegate" destination="xNJ-fC-O4J" id="Bw9-22-4LD"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzY-uC-NQC">
                                 <rect key="frame" x="150" y="723" width="67" height="45"/>
@@ -471,9 +475,6 @@
                             <constraint firstItem="T7X-80-QTr" firstAttribute="leading" secondItem="FVG-5B-8Qb" secondAttribute="leading" id="p3h-MM-DG4"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="T7X-80-QTr" id="g4g-Gk-veB"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyt-zc-rSm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
