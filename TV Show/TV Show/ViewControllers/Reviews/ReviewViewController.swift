@@ -10,6 +10,8 @@ import UIKit
 
 class ReviewViewController: UIViewController {
     
+   
+    
     // MARK: - Outlets
    
 
@@ -23,8 +25,8 @@ class ReviewViewController: UIViewController {
         super.viewDidLoad()
 //
 //        self.navigationItem.title = "Shows"
-//        self.navigationItem.setHidesBackButton(true, animated: true)
-        self.view.backgroundColor = .red
+        self.navigationItem.setHidesBackButton(false, animated: true)
+       
 //
     }
 //

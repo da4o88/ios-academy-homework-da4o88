@@ -54,6 +54,13 @@ class ShowDetailsViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    // MARK: - Action
+    
+    @IBAction func didTapBUttonReview(_ sender: Any) {
+        pushToReviewScreen()
+    }
+    
 }
 
 
@@ -158,22 +165,17 @@ extension ShowDetailsViewController: UITableViewDelegate {
 
 extension ShowDetailsViewController {
     
-
+    
+    // MARK: - Utility
+    
     func pushToReviewScreen() {
+        let reviewScreen = self.storyboard?.instantiateViewController(withIdentifier: "ReviewScreen") as! ReviewViewController
+        reviewScreen.navigationItem.largeTitleDisplayMode = .never
+        reviewScreen.navigationController?.isNavigationBarHidden = false
+//        reviewScreen.showData = data
+//        homeScreen.userHeaders = headers
+        self.navigationController?.present(reviewScreen, animated: true)
         
     }
-    
-//    // MARK: - Utility
-//    
-//    public func pushToReviewScreen() {
-//        let reviewScreen = self.storyboard?.instantiateViewController(withIdentifier: "reviewScreen") as! ReviewViewController
-//        reviewScreen.navigationItem.largeTitleDisplayMode = .never
-//        reviewScreen.navigationController?.isNavigationBarHidden = false
-////        reviewScreen.showData = data
-////        homeScreen.userHeaders = headers
-//        self.navigationController?.pushViewController(reviewScreen, animated: true)
-//        
-//    }
-//}
-
 }
+
