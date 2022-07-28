@@ -324,21 +324,21 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowTableViewCell" rowHeight="577" id="8tz-IJ-1R1" customClass="ShowTableViewCell" customModule="TV_Show" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="577"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowTableViewCell" id="8tz-IJ-1R1" customClass="ShowTableViewCell" customModule="TV_Show" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="258.33334350585938"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8tz-IJ-1R1" id="Ugh-An-txO">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="258.33334350585938"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-show-placeholder-vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n0S-es-X3p">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic-show-placeholder-vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n0S-es-X3p">
                                                     <rect key="frame" x="24" y="11" width="327" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="240" id="2Fz-Er-SLn"/>
                                                         <constraint firstAttribute="height" constant="128" id="YgH-L6-zDO"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXR-G3-jkw">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Description" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXR-G3-jkw">
                                                     <rect key="frame" x="24" y="147" width="327" height="20.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -346,6 +346,12 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnu-9k-Eh3">
                                                     <rect key="frame" x="16" y="188" width="335" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="numReviews" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIT-84-4d3">
+                                                    <rect key="frame" x="16" y="217" width="335" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -359,16 +365,21 @@
                                                 <constraint firstItem="vnu-9k-Eh3" firstAttribute="top" secondItem="dXR-G3-jkw" secondAttribute="bottom" constant="20.666666666666657" id="OGG-Rh-r5z"/>
                                                 <constraint firstItem="vnu-9k-Eh3" firstAttribute="trailing" secondItem="dXR-G3-jkw" secondAttribute="trailing" id="Tpo-NR-r8G"/>
                                                 <constraint firstItem="dXR-G3-jkw" firstAttribute="top" secondItem="n0S-es-X3p" secondAttribute="bottom" constant="8" id="W7D-nH-02i"/>
+                                                <constraint firstItem="hIT-84-4d3" firstAttribute="trailing" secondItem="vnu-9k-Eh3" secondAttribute="trailing" id="Ybe-yA-eGt"/>
                                                 <constraint firstItem="dXR-G3-jkw" firstAttribute="top" secondItem="n0S-es-X3p" secondAttribute="bottom" constant="8" id="b8M-Yq-deL"/>
+                                                <constraint firstItem="hIT-84-4d3" firstAttribute="leading" secondItem="vnu-9k-Eh3" secondAttribute="leading" id="fKw-NI-7IK"/>
                                                 <constraint firstItem="dXR-G3-jkw" firstAttribute="leading" secondItem="Ugh-An-txO" secondAttribute="leadingMargin" constant="8" id="hX2-jt-fqg"/>
                                                 <constraint firstItem="vnu-9k-Eh3" firstAttribute="leading" secondItem="Ugh-An-txO" secondAttribute="leadingMargin" id="kAt-rc-KTv"/>
+                                                <constraint firstItem="hIT-84-4d3" firstAttribute="top" secondItem="vnu-9k-Eh3" secondAttribute="bottom" constant="8" id="kO4-qu-w7L"/>
                                                 <constraint firstItem="n0S-es-X3p" firstAttribute="trailing" secondItem="dXR-G3-jkw" secondAttribute="trailing" id="t6p-kC-dKq"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="dXR-G3-jkw" secondAttribute="trailing" constant="8" id="wmj-FX-psJ"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hIT-84-4d3" secondAttribute="bottom" constant="20" id="wra-Bu-I2t"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="showDescription" destination="dXR-G3-jkw" id="0vT-E0-Mfq"/>
                                             <outlet property="showImage" destination="n0S-es-X3p" id="DbQ-e4-UQx"/>
+                                            <outlet property="showNumOfReviews" destination="hIT-84-4d3" id="tXO-R7-3E5"/>
                                             <outlet property="showReviews" destination="vnu-9k-Eh3" id="gVr-bi-v8v"/>
                                         </connections>
                                     </tableViewCell>

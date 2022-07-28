@@ -22,7 +22,7 @@ class ShowTableViewCell: UITableViewCell {
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var showDescription: UILabel!
     @IBOutlet weak var showReviews: UILabel!
-    
+    @IBOutlet weak var showNumOfReviews: UILabel!
     
     //    override func awakeFromNib() {
 //        super.awakeFromNib()

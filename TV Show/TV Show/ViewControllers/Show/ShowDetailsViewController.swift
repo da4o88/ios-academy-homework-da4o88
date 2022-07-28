@@ -27,8 +27,8 @@ class ShowDetailsViewController: UIViewController {
   
         tableView.dataSource = self
         tableView.delegate = self
-        self.tableView.rowHeight = UITableView.automaticDimension
-        self.tableView.estimatedRowHeight = 800
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 1200
        
     }
     
@@ -55,9 +55,13 @@ extension ShowDetailsViewController: UITableViewDataSource {
         let url = URL(string: (showData?.imageUrl)!)
         cellShow.showImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-show-placeholder-vertical"))
         cellShow.showDescription.text = showData?.description
-        cellShow.showReviews.text = "\(String(describing: showData!.numOfReviews))"
+        cellShow.showReviews.text = "Reviews"
+        print("showData: \(String(describing: showData))")
+        let numOfReviews = showData?.numOfReviews
+        let numOfAverageReviews = showData?.averageRating
         
-        
+        cellShow.showNumOfReviews.text = "\(String(describing: numOfReviews!))   REVIEWS   \(String(describing: numOfAverageReviews!))    AVERAGE"
+//        cellShow.showReviews.text = "\(String(describing: showData!.numOfReviews))"
         
 
         return cellShow
@@ -72,7 +76,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
 extension ShowDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // Change to dynamic  Here check again
-        return 300
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
