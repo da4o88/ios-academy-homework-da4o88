@@ -30,6 +30,7 @@ final class LoginViewController: UIViewController {
     private var email = ""
     private var password = ""
     private var userData: User? = nil
+    var headers: [String: String] = [:]
     
     // MARK: - Lifecycle methods
     
@@ -109,7 +110,6 @@ final class LoginViewController: UIViewController {
         guard let userInfo = notification.userInfo else { return }
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height + 20
         scrollView.contentInset = contentInset
@@ -129,7 +129,9 @@ final class LoginViewController: UIViewController {
     func pushToHomeScreen() {
         let homeScreen = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
         homeScreen.navigationItem.largeTitleDisplayMode = .never
+        homeScreen.userHeaders = headers
         self.navigationController?.pushViewController(homeScreen, animated: true)
+        
     }
     
     // Show-Hide Keyboard
@@ -162,7 +164,7 @@ final class LoginViewController: UIViewController {
             "email": email,
             "password": password
         ]
-                
+
         AF
             .request(
             requestUrl,
@@ -176,20 +178,37 @@ final class LoginViewController: UIViewController {
             MBProgressHUD.hide(for: self.view, animated: true)
             switch response.result {
             case .success(let userInfo):
-                self.pushToHomeScreen()
                 // Store data from API response to variable
                 self.userData = userInfo.user
                 let headers = response.response?.headers.dictionary ?? [:]
-                guard let authInfo = try? AuthInfo(headers: headers) else {
-                    print("Missing headers")
-                            return
-                        }
-                    print("\(String(describing: self.userData))\n\n\(authInfo)")
+                self.handleSuccesfulLogin(for: userInfo.user, headers: headers)
+//                guard let authInfo = try? AuthInfo(headers: headers) else {
+//                    print("Missing headers")
+//                            return
+//                        }
+//                    print("\(String(describing: self.userData))\n\n\(authInfo)")
+                self.pushToHomeScreen()
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
+                let message = "Login failed. Try again!"
+                self.alertMessage(message: message)
             }
         }
+    }
+    
+// Headers will be used for subsequent authorization on next requests
+    func handleSuccesfulLogin(for user: User, headers: [String: String]) {
+        guard let authInfo = try? AuthInfo(headers: headers) else {
+//            infoLabel.text = "Missing headers"
+            print("Missing Headers")
+            return
+        }
+            print("\(user)\n\n\(authInfo)")
+        self.headers = authInfo.headers
+     
+        
+//        infoLabel.text = "\(user)\n\n\(authInfo)"
     }
     
     func registerUser() {
@@ -225,8 +244,19 @@ final class LoginViewController: UIViewController {
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
+                let message = "Register failed. Try again!"
+                self.alertMessage(message: message)
               
             }
+        }
+    }
+    
+    // Login or Register Alert when failed.
+    func alertMessage(message: String?) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated:true) {
+            return
         }
     }
 }
