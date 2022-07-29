@@ -8,5 +8,6 @@ target 'TV Show' do
   # Pods for TV Show
   pod 'MBProgressHUD'
   pod 'Alamofire'
-
+  pod 'Kingfisher', '~> 7.0'
+  
 end
