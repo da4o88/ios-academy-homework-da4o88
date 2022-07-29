@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Kingfisher
 import Alamofire
+import MBProgressHUD
 
 class ShowDetailsViewController: UIViewController {
     
@@ -28,7 +29,15 @@ class ShowDetailsViewController: UIViewController {
    
     // MARK: - Properties
 
+    let authData = AuthInfoData.shared
     var showData: Show? = nil
+    
+    // MARK: - Properties 2
+    
+
+    
+    var showInfo: Show? = nil
+    var showReview: [Review] = []
     
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
@@ -40,6 +49,7 @@ class ShowDetailsViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 1200
        
+        showReviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +108,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
             cellShow.userComments.text = "Nekakvi komentari za sega"
             cellShow.userId.text = "My new ID is NEW"
             
+            
             return cellShow
         }
     }
@@ -125,6 +136,8 @@ extension ShowDetailsViewController {
         let reviewScreen = self.storyboard?.instantiateViewController(withIdentifier: "ReviewScreen") as! ReviewViewController
         reviewScreen.navigationItem.largeTitleDisplayMode = .never
         reviewScreen.navigationController?.isNavigationBarHidden = false
+        reviewScreen.showInfo = showData
+        
 //        reviewScreen.showData = data
 //        homeScreen.userHeaders = headers
         self.navigationController?.present(reviewScreen, animated: true)
@@ -132,3 +145,45 @@ extension ShowDetailsViewController {
     }
 }
 
+
+extension ShowDetailsViewController {
+
+
+    // MARK: - Utility methods
+
+    func showReviews() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        let urlShowId:String! = showData?.id
+        let id = Int(urlShowId)
+        let urlRequest = "https://tv-shows.infinum.academy/shows/\(id ?? 0)/reviews"
+        print("URL patekata: \(urlRequest)")
+        AF
+          .request(
+              urlRequest,
+              method: HTTPMethod.get,
+              parameters: ["page": "1", "items": "20"],
+              headers: HTTPHeaders(authData.authInfo!.headers)
+          )
+          .validate()
+            .responseDecodable(of: ReviewResponse.self) { [weak self] response in
+                guard let self = self else {return}
+                MBProgressHUD.hide(for: self.view, animated: true)
+                switch response.result {
+                case .success(let showReviews):
+                    print("RESPONSE: \(response)")
+                    print("REVIEWS: \(showReviews)")
+
+
+    //                self.tableViewData = tvShows.shows
+    //                self.tableView.reloadData()
+    //
+                case .failure(let error):
+                    print("Response failed! \(error)")
+                }
+
+            }
+
+    }
+
+
+}

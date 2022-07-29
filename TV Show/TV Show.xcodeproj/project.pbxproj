@@ -12,6 +12,7 @@
 		421E16DF2885FD830091C076 /* ApiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421E16DE2885FD830091C076 /* ApiUser.swift */; };
 		421EF822288D3BBA00658A07 /* ApiShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421EF821288D3BBA00658A07 /* ApiShows.swift */; };
 		4228AC0E28930B0A0077EE2D /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4228AC0D28930B0A0077EE2D /* RatingView.swift */; };
+		424DDF4E28940CBF00170F5F /* AuthInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DDF4D28940CBF00170F5F /* AuthInfoData.swift */; };
 		424F06D32892C4E400F906FA /* ReviewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F06D22892C4E400F906FA /* ReviewsTableViewCell.swift */; };
 		4264285A2891D07A009AAC4D /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426428592891D07A009AAC4D /* ReviewViewController.swift */; };
 		426F4B0E2891697A0049B5B7 /* ShowDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426F4B0D2891697A0049B5B7 /* ShowDetailsViewController.swift */; };
@@ -23,6 +24,8 @@
 		42B19EA02875F82000EB4836 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B19E9F2875F82000EB4836 /* ViewController.swift */; };
 		42B19EA52875F82200EB4836 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B19EA42875F82200EB4836 /* Assets.xcassets */; };
 		42B19EA82875F82200EB4836 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B19EA62875F82200EB4836 /* LaunchScreen.storyboard */; };
+		42EF6475289341D30020A546 /* ApiReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF6474289341D30020A546 /* ApiReviews.swift */; };
+		42EF64772893463B0020A546 /* GetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF64762893463B0020A546 /* GetAPI.swift */; };
 		74BB6648AF7B23009028BFF9 /* Pods_TV_Show.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAAB7B7F152CFE1849B5765 /* Pods_TV_Show.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,7 @@
 		421E16DE2885FD830091C076 /* ApiUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUser.swift; sourceTree = "<group>"; };
 		421EF821288D3BBA00658A07 /* ApiShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiShows.swift; sourceTree = "<group>"; };
 		4228AC0D28930B0A0077EE2D /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		424DDF4D28940CBF00170F5F /* AuthInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInfoData.swift; sourceTree = "<group>"; };
 		424F06D22892C4E400F906FA /* ReviewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableViewCell.swift; sourceTree = "<group>"; };
 		426428592891D07A009AAC4D /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		426F4B0D2891697A0049B5B7 /* ShowDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +49,8 @@
 		42B19EA42875F82200EB4836 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42B19EA72875F82200EB4836 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42B19EA92875F82200EB4836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42EF6474289341D30020A546 /* ApiReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiReviews.swift; sourceTree = "<group>"; };
+		42EF64762893463B0020A546 /* GetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAPI.swift; sourceTree = "<group>"; };
 		A73CF2C284F0B27B917B2283 /* Pods-TV Show.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Show.release.xcconfig"; path = "Target Support Files/Pods-TV Show/Pods-TV Show.release.xcconfig"; sourceTree = "<group>"; };
 		BE3107D1077911F4E916C452 /* Pods-TV Show.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Show.debug.xcconfig"; path = "Target Support Files/Pods-TV Show/Pods-TV Show.debug.xcconfig"; sourceTree = "<group>"; };
 		EBAAB7B7F152CFE1849B5765 /* Pods_TV_Show.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TV_Show.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,8 +118,6 @@
 			children = (
 				427277FB287853C80057F632 /* Login.storyboard */,
 				427277FD287853FC0057F632 /* LoginViewController.swift */,
-				421E16DE2885FD830091C076 /* ApiUser.swift */,
-				421EF821288D3BBA00658A07 /* ApiShows.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -153,12 +157,25 @@
 		42B4EDB32880432000AB1DDE /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				42EF647328933F2F0020A546 /* API */,
 				4264285C2891D132009AAC4D /* Show */,
 				4264285B2891D113009AAC4D /* Shows */,
 				426428582891D047009AAC4D /* Reviews */,
 				427277F8287853350057F632 /* Login */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		42EF647328933F2F0020A546 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				421E16DE2885FD830091C076 /* ApiUser.swift */,
+				421EF821288D3BBA00658A07 /* ApiShows.swift */,
+				42EF6474289341D30020A546 /* ApiReviews.swift */,
+				42EF64762893463B0020A546 /* GetAPI.swift */,
+				424DDF4D28940CBF00170F5F /* AuthInfoData.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,13 +294,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				421E16DD2885F5880091C076 /* HomeViewController.swift in Sources */,
+				42EF64772893463B0020A546 /* GetAPI.swift in Sources */,
 				427277FE287853FC0057F632 /* LoginViewController.swift in Sources */,
 				42B19EA02875F82000EB4836 /* ViewController.swift in Sources */,
 				421E16DF2885FD830091C076 /* ApiUser.swift in Sources */,
+				424DDF4E28940CBF00170F5F /* AuthInfoData.swift in Sources */,
 				42B19E9C2875F82000EB4836 /* AppDelegate.swift in Sources */,
 				424F06D32892C4E400F906FA /* ReviewsTableViewCell.swift in Sources */,
 				421EF822288D3BBA00658A07 /* ApiShows.swift in Sources */,
 				4228AC0E28930B0A0077EE2D /* RatingView.swift in Sources */,
+				42EF6475289341D30020A546 /* ApiReviews.swift in Sources */,
 				4209C060288EDCDD00303563 /* TvShowsTableViewCell.swift in Sources */,
 				4264285A2891D07A009AAC4D /* ReviewViewController.swift in Sources */,
 				426F4B0E2891697A0049B5B7 /* ShowDetailsViewController.swift in Sources */,

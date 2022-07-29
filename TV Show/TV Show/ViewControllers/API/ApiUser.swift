@@ -29,7 +29,9 @@ struct User: Decodable {
 }
 
 struct AuthInfo: Codable {
-
+    
+//    static let sharedInstance = AuthInfo()
+    
     let accessToken: String
     let client: String
     let tokenType: String

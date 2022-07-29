@@ -13,13 +13,15 @@ import Kingfisher
 
 class HomeViewController: UIViewController {
     
+    static let sharedInstance = HomeViewController()
     // MARK: - Outlets
    
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
 
-    var userHeaders: [String: String] = [:]
+//    var userHeaders: [String: String] = [:]
+    let authData = AuthInfoData.shared
     var tableViewData: [Show] = []
     
     // MARK: - Lifecycle methods
@@ -54,7 +56,7 @@ extension HomeViewController {
               urlRequest,
               method: HTTPMethod.get,
               parameters: ["page": "1", "items": "100"], // pagination arguments
-              headers: HTTPHeaders(userHeaders)
+              headers: HTTPHeaders(authData.authInfo!.headers)
           )
           .validate()
             .responseDecodable(of: ShowsResponse.self) { [weak self] response in
@@ -112,7 +114,6 @@ extension HomeViewController {
         showScreen.navigationItem.largeTitleDisplayMode = .never
         showScreen.navigationController?.isNavigationBarHidden = false
         showScreen.showData = data
-//        homeScreen.userHeaders = headers
         self.navigationController?.pushViewController(showScreen, animated: true)
         
     }

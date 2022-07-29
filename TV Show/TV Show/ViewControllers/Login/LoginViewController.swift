@@ -13,6 +13,8 @@ import Alamofire
 
 final class LoginViewController: UIViewController {
     
+  
+    
     // MARK: - Outlets
     
     @IBOutlet private weak var checkBoxButton: UIButton!
@@ -29,8 +31,10 @@ final class LoginViewController: UIViewController {
     private var emailPassFieldEmpty = true
     private var email = ""
     private var password = ""
-    private var userData: User? = nil
-    var headers: [String: String] = [:]
+//    private var userData: User? = nil
+//    var headers: [String: String] = [:]
+     let instance = AuthInfoData.shared
+    
     
     // MARK: - Lifecycle methods
     
@@ -134,7 +138,7 @@ extension LoginViewController {
     func pushToHomeScreen() {
         let homeScreen = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
         homeScreen.navigationItem.largeTitleDisplayMode = .never
-        homeScreen.userHeaders = headers
+//        homeScreen.userHeaders = headers
         self.navigationController?.pushViewController(homeScreen, animated: true)
         
     }
@@ -187,14 +191,9 @@ extension LoginViewController {
             switch response.result {
             case .success(let userInfo):
                 // Store data from API response to variable
-                self.userData = userInfo.user
+                self.instance.user = userInfo.user
                 let headers = response.response?.headers.dictionary ?? [:]
                 self.handleSuccesfulLogin(for: userInfo.user, headers: headers)
-//                guard let authInfo = try? AuthInfo(headers: headers) else {
-//                    print("Missing headers")
-//                            return
-//                        }
-//                    print("\(String(describing: self.userData))\n\n\(authInfo)")
                 self.pushToHomeScreen()
             case .failure(let error):
                 print("API Error ---")
@@ -206,13 +205,17 @@ extension LoginViewController {
     }
     
 // Headers will be used for subsequent authorization on next requests
-    func handleSuccesfulLogin(for user: User, headers: [String: String]) {
+    public func handleSuccesfulLogin(for user: User, headers: [String: String]) {
         guard let authInfo = try? AuthInfo(headers: headers) else {
             print("Missing Headers")
             return
         }
-            print("\(user)\n\n\(authInfo)")
-        self.headers = authInfo.headers
+//            print("\(user)\n\n\(authInfo)")
+        instance.user = user
+        instance.authInfo = authInfo
+        
+        print("user i headers: \(String(describing:instance.user)) ^^^^^ \(String(describing: instance.authInfo))")
+//        instance.authInfo = authInfo.headers
     }
     
     func registerUser() {
@@ -237,7 +240,7 @@ extension LoginViewController {
             MBProgressHUD.hide(for: self.view, animated: true)
             switch response.result {
             case .success(let userInfo):
-                self.userData = userInfo.user
+                self.instance.user = userInfo.user
                 let headers = response.response?.headers.dictionary ?? [:]
                 self.handleSuccesfulLogin(for: userInfo.user, headers: headers)
                 self.pushToHomeScreen()
