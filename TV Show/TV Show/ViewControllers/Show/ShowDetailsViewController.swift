@@ -136,14 +136,20 @@ extension ShowDetailsViewController {
     
     func presentToReviewScreen() {
         let reviewScreen = self.storyboard?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
-        reviewScreen.navigationItem.largeTitleDisplayMode = .never
-        reviewScreen.navigationController?.isNavigationBarHidden = false
+//        reviewScreen.navigationItem.largeTitleDisplayMode = .never
+//        reviewScreen.navigationController?.isNavigationBarHidden = false
 //        reviewScreen.showInfo = showData
 
 
 //        reviewScreen.showData = data
 //        homeScreen.userHeaders = headers
         self.navigationController?.present(reviewScreen, animated: true)
+        
+        // Something new
+        
+        let editorViewController = reviewScreen
+         let navEditorViewController: UINavigationController = UINavigationController(rootViewController: editorViewController)
+        self.present(navEditorViewController, animated: true, completion: nil)
 
         
         
