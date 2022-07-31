@@ -9,6 +9,7 @@ import UIKit
 
 class TvShowsTableViewCell: UITableViewCell {
 
+    // MARK: - Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var showImage: UIImageView!

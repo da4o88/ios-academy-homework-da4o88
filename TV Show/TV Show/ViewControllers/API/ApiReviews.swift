@@ -15,7 +15,7 @@ struct ReviewResponse: Decodable {
 
 struct Review: Decodable {
     let id: String
-    let comment: String
+    let comment: String?
     let rating: Int
     let showId: Int
     let user: User

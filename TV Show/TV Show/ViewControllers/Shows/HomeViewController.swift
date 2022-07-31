@@ -13,14 +13,12 @@ import Kingfisher
 
 class HomeViewController: UIViewController {
     
-    static let sharedInstance = HomeViewController()
     // MARK: - Outlets
    
     @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
 
-//    var userHeaders: [String: String] = [:]
     let authData = AuthInfoData.shared
     var tableViewData: [Show] = []
     
@@ -66,7 +64,6 @@ extension HomeViewController {
                 case .success(let tvShows):
                     self.tableViewData = tvShows.shows
                     self.tableView.reloadData()
-//                    print("news: \(tvShows.shows)")
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }

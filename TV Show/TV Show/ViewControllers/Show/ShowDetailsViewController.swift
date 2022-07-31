@@ -31,6 +31,7 @@ class ShowDetailsViewController: UIViewController {
 
     let authData = AuthInfoData.shared
     var showData: Show? = nil
+    var reviewsData: [Review] = []
     
     // MARK: - Properties 2
     
@@ -49,7 +50,7 @@ class ShowDetailsViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 1200
        
-        showReviews()
+        getShowReviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +69,7 @@ class ShowDetailsViewController: UIViewController {
     // MARK: - Action
     
     @IBAction func didTapBUttonReview(_ sender: Any) {
-        pushToReviewScreen()
+//        presentToReviewScreen()
     }
     
 }
@@ -105,7 +106,8 @@ extension ShowDetailsViewController: UITableViewDataSource {
         } else {
             let cellShow = tableView.dequeueReusableCell(withIdentifier: String(describing: ReviewsTableViewCell.identifier ) , for: indexPath) as! ReviewsTableViewCell
 //            let url1 = URL(string: (showData?.imageUrl)!)
-            cellShow.userComments.text = "Nekakvi komentari za sega"
+            
+//            cellShow.userComments.text = reviewsData.com
             cellShow.userId.text = "My new ID is NEW"
             
             
@@ -132,15 +134,18 @@ extension ShowDetailsViewController {
     
     // MARK: - Utility
     
-    func pushToReviewScreen() {
-        let reviewScreen = self.storyboard?.instantiateViewController(withIdentifier: "ReviewScreen") as! ReviewViewController
+    func presentToReviewScreen() {
+        let reviewScreen = self.storyboard?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
         reviewScreen.navigationItem.largeTitleDisplayMode = .never
         reviewScreen.navigationController?.isNavigationBarHidden = false
-        reviewScreen.showInfo = showData
-        
+//        reviewScreen.showInfo = showData
+
+
 //        reviewScreen.showData = data
 //        homeScreen.userHeaders = headers
         self.navigationController?.present(reviewScreen, animated: true)
+
+        
         
     }
 }
@@ -151,7 +156,7 @@ extension ShowDetailsViewController {
 
     // MARK: - Utility methods
 
-    func showReviews() {
+    func getShowReviews() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let urlShowId:String! = showData?.id
         let id = Int(urlShowId)
@@ -170,13 +175,13 @@ extension ShowDetailsViewController {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let showReviews):
-                    print("RESPONSE: \(response)")
-                    print("REVIEWS: \(showReviews)")
-
-
-    //                self.tableViewData = tvShows.shows
-    //                self.tableView.reloadData()
-    //
+                    self.reviewsData = showReviews.reviews
+                    self.tableView.reloadData()
+                    
+//                    print("RESPONSE: \(response)")
+//                    print("REVIEWS: \(showReviews.reviews.rating)")
+//                    print("REVIEWS DATA: \(self.reviewsData)")
+    
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }
@@ -184,6 +189,4 @@ extension ShowDetailsViewController {
             }
 
     }
-
-
 }

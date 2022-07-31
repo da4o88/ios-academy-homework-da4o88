@@ -128,6 +128,8 @@
 //
 //    func currentSelectedRating() -> Int {
 //        // TODO: Your code goes here
+//
+//        return
 //    }
 //}
 //
@@ -142,7 +144,7 @@
 //            return
 //        }
 //        // TODO: Enter the correct index for the rating
-//        setRating(/* correct value */)
+//        setRating(buttonIndex) /* correct value */
 //        delegate?.didChangeRating(rating)
 //    }
 //}

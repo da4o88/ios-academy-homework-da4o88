@@ -214,8 +214,6 @@ extension LoginViewController {
         instance.user = user
         instance.authInfo = authInfo
         
-        print("user i headers: \(String(describing:instance.user)) ^^^^^ \(String(describing: instance.authInfo))")
-//        instance.authInfo = authInfo.headers
     }
     
     func registerUser() {
