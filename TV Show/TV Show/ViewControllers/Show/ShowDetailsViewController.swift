@@ -121,7 +121,8 @@ extension ShowDetailsViewController: UITableViewDataSource {
 extension ShowDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // Change to dynamic  Here check again
-        return UITableView.automaticDimension
+      
+        return 800
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
