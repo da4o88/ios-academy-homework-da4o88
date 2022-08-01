@@ -26,6 +26,7 @@
 		42B19EA52875F82200EB4836 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42B19EA42875F82200EB4836 /* Assets.xcassets */; };
 		42B19EA82875F82200EB4836 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B19EA62875F82200EB4836 /* LaunchScreen.storyboard */; };
 		42E7CF8B2896C80F00339D25 /* RatingViewStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E7CF8A2896C80F00339D25 /* RatingViewStar.swift */; };
+		42E7CF8D2896E84400339D25 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E7CF8C2896E84400339D25 /* ReviewTableViewCell.swift */; };
 		42EF6475289341D30020A546 /* ApiReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EF6474289341D30020A546 /* ApiReviews.swift */; };
 		74BB6648AF7B23009028BFF9 /* Pods_TV_Show.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAAB7B7F152CFE1849B5765 /* Pods_TV_Show.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		42B19EA72875F82200EB4836 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42B19EA92875F82200EB4836 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42E7CF8A2896C80F00339D25 /* RatingViewStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewStar.swift; sourceTree = "<group>"; };
+		42E7CF8C2896E84400339D25 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
 		42EF6474289341D30020A546 /* ApiReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiReviews.swift; sourceTree = "<group>"; };
 		A73CF2C284F0B27B917B2283 /* Pods-TV Show.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Show.release.xcconfig"; path = "Target Support Files/Pods-TV Show/Pods-TV Show.release.xcconfig"; sourceTree = "<group>"; };
 		BE3107D1077911F4E916C452 /* Pods-TV Show.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TV Show.debug.xcconfig"; path = "Target Support Files/Pods-TV Show/Pods-TV Show.debug.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				426428592891D07A009AAC4D /* ReviewViewController.swift */,
 				421DB91A289475EC0080E07F /* ReviewCell.swift */,
 				42E7CF8A2896C80F00339D25 /* RatingViewStar.swift */,
+				42E7CF8C2896E84400339D25 /* ReviewTableViewCell.swift */,
 			);
 			path = Reviews;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				421E16DF2885FD830091C076 /* ApiUser.swift in Sources */,
 				424DDF4E28940CBF00170F5F /* AuthInfoData.swift in Sources */,
 				42B19E9C2875F82000EB4836 /* AppDelegate.swift in Sources */,
+				42E7CF8D2896E84400339D25 /* ReviewTableViewCell.swift in Sources */,
 				424F06D32892C4E400F906FA /* ReviewsTableViewCell.swift in Sources */,
 				421EF822288D3BBA00658A07 /* ApiShows.swift in Sources */,
 				4228AC0E28930B0A0077EE2D /* RatingView.swift in Sources */,

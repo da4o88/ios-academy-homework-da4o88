@@ -9,11 +9,14 @@ import Foundation
 import UIKit
 import Alamofire
 import MBProgressHUD
+import SwiftUI
+
 
 class ReviewViewController: UIViewController {
     
-    // MARK: - Outlets
     
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var tableReview: UITableView!
     @IBOutlet weak var closeBackButton: UIBarButtonItem!
@@ -25,6 +28,9 @@ class ReviewViewController: UIViewController {
         
         self.view.backgroundColor = .systemTeal
         closeBackButton.title = "Close"
+        
+        tableReview.dataSource = self
+        tableReview.delegate = self
         
         
     }
@@ -51,3 +57,29 @@ extension ReviewViewController {
         navigationController?.popViewController(animated: true)
     }
 }
+
+extension ReviewViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
+    }
+    
+}
+
+extension ReviewViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableReview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ReviewTableViewCell
+        cell.titleLabel.text = "Rating"
+        cell.ratingView.isEnabled = true
+        cell.ratingView.rating = 4
+
+        return cell
+    }
+    
+    
+}
+
+
