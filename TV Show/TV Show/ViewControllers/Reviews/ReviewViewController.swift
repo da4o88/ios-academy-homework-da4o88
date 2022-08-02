@@ -18,8 +18,17 @@ class ReviewViewController: UIViewController {
     
     // MARK: - Outlets
     
+ 
     @IBOutlet weak var tableReview: UITableView!
     @IBOutlet weak var closeBackButton: UIBarButtonItem!
+    @IBOutlet weak var userComment: UITextField!
+    
+    // MARK: - Properties
+    
+    let authData = AuthInfoData.shared
+    var showInfo: String? = nil
+    var reviewData: Show? = nil
+    var showId: Int = 0
     
     // MARK: - Lifecycle methods
     
@@ -56,6 +65,11 @@ extension ReviewViewController {
     @IBAction func backButton(sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func submitButton(sender: UIButton) {
+        sendReviiew()
+        
+    }
 }
 
 extension ReviewViewController : UITableViewDelegate {
@@ -82,4 +96,52 @@ extension ReviewViewController: UITableViewDataSource {
     
 }
 
+extension ReviewViewController {
 
+        // MARK: - Utility methods
+
+        func sendReviiew() {
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            let rating = 3
+            guard let userComment = userComment.text else {
+                return
+            }
+            let urlRequest = "https://tv-shows.infinum.academy/reviews"
+            print("URL patekata: \(urlRequest)")
+            let parameters: [String: Any?] = [
+                "rating": String(rating),
+                "comment": userComment,
+                "show_id": showId
+                
+            ]
+            
+            AF
+              .request(
+                  urlRequest,
+                  method: HTTPMethod.post,
+                  parameters: parameters as Parameters,
+                  headers: HTTPHeaders(authData.authInfo!.headers)
+                  
+              )
+              .validate()
+                .responseDecodable(of: ReviewResponse.self) { [weak self] response in
+                    guard let self = self else {return}
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    switch response.result {
+                    case .success(let showReviews):
+                       
+                        
+                        
+                        print("RESPONSE: \(showReviews)")
+    //                    print("REVIEWS: \(showReviews.reviews.rating)")
+    //                    print("REVIEWS DATA: \(self.reviewsData)")
+        
+                    case .failure(let error):
+                        print("Sending review failed! \(error)")
+                    }
+
+                }
+
+        }
+    
+}

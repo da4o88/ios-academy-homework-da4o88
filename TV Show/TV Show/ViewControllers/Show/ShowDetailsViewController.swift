@@ -32,6 +32,7 @@ class ShowDetailsViewController: UIViewController {
     let authData = AuthInfoData.shared
     var showData: Show? = nil
     var reviewsData: [Review] = []
+    var showId: Int = 0
     
     // MARK: - Properties 2
     
@@ -141,7 +142,9 @@ extension ShowDetailsViewController {
         let reviewScreen = self.storyboard?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
 //        reviewScreen.navigationItem.largeTitleDisplayMode = .never
 //        reviewScreen.navigationController?.isNavigationBarHidden = false
-//        reviewScreen.showInfo = showData
+        reviewScreen.showInfo = showData?.id
+        reviewScreen.showId = showId
+//        reviewScreen.reviewData = showData.id 
 
 
 //        reviewScreen.showData = data
@@ -170,7 +173,8 @@ extension ShowDetailsViewController {
         let urlShowId:String! = showData?.id
         let id = Int(urlShowId)
         let urlRequest = "https://tv-shows.infinum.academy/shows/\(id ?? 0)/reviews"
-        print("URL patekata: \(urlRequest)")
+        self.showId = id!
+        print("URL patekata: \(urlRequest), \(self.showId)")
         AF
           .request(
               urlRequest,
