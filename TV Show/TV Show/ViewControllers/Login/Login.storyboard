@@ -336,7 +336,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="yUK-hu-7Kl">
-                                    <rect key="frame" x="0.0" y="163.33333206176758" width="375" height="350"/>
+                                    <rect key="frame" x="0.0" y="163.33333206176769" width="375" height="350"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3R-Zc-85M">

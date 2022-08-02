@@ -35,10 +35,8 @@ class ShowDetailsViewController: UIViewController {
     
     // MARK: - Properties 2
     
-
-    
-    var showInfo: Show? = nil
-    var showReview: [Review] = []
+//    var showInfo: Show? = nil
+//    var showReview: [Review] = []
     
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
