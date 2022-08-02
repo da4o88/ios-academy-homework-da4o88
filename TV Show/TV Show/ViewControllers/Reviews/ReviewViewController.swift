@@ -67,7 +67,7 @@ extension ReviewViewController {
     }
     
     @IBAction func submitButton(sender: UIButton) {
-        sendReviiew()
+        postReview()
         
     }
 }
@@ -100,7 +100,7 @@ extension ReviewViewController {
 
         // MARK: - Utility methods
 
-        func sendReviiew() {
+        func postReview() {
             MBProgressHUD.showAdded(to: self.view, animated: true)
             let rating = 3
             guard let userComment = userComment.text else {

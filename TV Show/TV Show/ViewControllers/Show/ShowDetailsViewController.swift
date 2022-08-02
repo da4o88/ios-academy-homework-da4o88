@@ -83,7 +83,12 @@ extension ShowDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return 1
+        } else {
+            return 20
+        }
+       
     }
     
     
@@ -95,7 +100,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
         cellShow.showImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-show-placeholder-vertical"))
         cellShow.showDescription.text = showData?.description
         cellShow.showReviews.text = "Reviews"
-        print("showData: \(String(describing: indexPath.section))")
+        
         let numOfReviews = showData?.numOfReviews
         let numOfAverageReviews = showData?.averageRating
 
@@ -110,9 +115,9 @@ extension ShowDetailsViewController: UITableViewDataSource {
             
             
             cellShow.userId.text = "My new ID is NEW"
-            cellShow.ratingStars.rating = 4
-            cellShow.userComments.text = "Malku komentari za idninita"
-            
+//            cellShow.ratingStars.rating = ""
+            cellShow.userComments.text = "Future comments place here!"
+            print("showData: \(String(describing: reviewsData.count))")
             
             return cellShow
         }
@@ -188,12 +193,13 @@ extension ShowDetailsViewController {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let showReviews):
+                  
                     self.reviewsData = showReviews.reviews
                     self.tableView.reloadData()
                     
 //                    print("RESPONSE: \(response)")
 //                    print("REVIEWS: \(showReviews.reviews.rating)")
-//                    print("REVIEWS DATA: \(self.reviewsData)")
+                    print("REVIEWS DATA: \(self.reviewsData)")
     
                 case .failure(let error):
                     print("Response failed! \(error)")
