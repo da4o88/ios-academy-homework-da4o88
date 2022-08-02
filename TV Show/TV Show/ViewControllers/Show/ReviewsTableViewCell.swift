@@ -15,7 +15,13 @@ class ReviewsTableViewCell: UITableViewCell {
   
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userId: UILabel!
-    @IBOutlet weak var ratingStars: UILabel!
+    @IBOutlet weak var ratingStars: RatingView!
     @IBOutlet weak var userComments: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        ratingStars.configure(withStyle: .small)
+        ratingStars.isEnabled = false
+    }
 }

@@ -101,14 +101,18 @@ extension ShowDetailsViewController: UITableViewDataSource {
         let numOfAverageReviews = showData?.averageRating
 
         cellShow.showNumOfReviews.text = "\(String(describing: numOfReviews!))   REVIEWS   \(String(describing: numOfAverageReviews!))    AVERAGE"
-
+        
+        cellShow.showRatingStars.rating = 4
+        
         return cellShow
         } else {
             let cellShow = tableView.dequeueReusableCell(withIdentifier: String(describing: ReviewsTableViewCell.identifier ) , for: indexPath) as! ReviewsTableViewCell
 //            let url1 = URL(string: (showData?.imageUrl)!)
             
-//            cellShow.userComments.text = reviewsData.com
+            
             cellShow.userId.text = "My new ID is NEW"
+            cellShow.ratingStars.rating = 4
+            cellShow.userComments.text = "Malku komentari za idninita"
             
             
             return cellShow
@@ -122,7 +126,7 @@ extension ShowDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // Change to dynamic  Here check again
       
-        return 800
+        return 570
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

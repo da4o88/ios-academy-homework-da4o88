@@ -19,8 +19,8 @@ class ReviewTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        ratingView.configure(withStyle: .small)
-        ratingView.isEnabled = false
+        ratingView.configure(withStyle: .large)
+        ratingView.isEnabled = true
     }
     
     func configure(with show: Show) {

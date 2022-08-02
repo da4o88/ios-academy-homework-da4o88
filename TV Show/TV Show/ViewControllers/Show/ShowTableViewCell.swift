@@ -18,10 +18,16 @@ class ShowTableViewCell: UITableViewCell {
     @IBOutlet weak var showDescription: UILabel!
     @IBOutlet weak var showReviews: UILabel!
     @IBOutlet weak var showNumOfReviews: UILabel!
+    @IBOutlet weak var showRatingStars: RatingView!
     
     
     // MARK: - Properties
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        showRatingStars.configure(withStyle: .small)
+        showRatingStars.isEnabled = false
+    }
     
 }
