@@ -11,7 +11,7 @@ import Kingfisher
 import Alamofire
 import MBProgressHUD
 
-class ShowDetailsViewController: UIViewController {
+final class ShowDetailsViewController: UIViewController {
     
     // MARK: - Outlets
    
@@ -52,9 +52,7 @@ class ShowDetailsViewController: UIViewController {
     @IBAction func didTapBUttonReview(_ sender: Any) {
         presentToReviewScreen()
     }
-    
 }
-
 
     // MARK: - Two TableViewCells
 
@@ -133,7 +131,7 @@ extension ShowDetailsViewController {
         let id = Int(urlShowId)
         let urlRequest = "https://tv-shows.infinum.academy/shows/\(id ?? 0)/reviews"
         self.showId = id!
-        print("URL patekata: \(urlRequest), \(self.showId)")
+
         AF
           .request(
               urlRequest,

@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ShowTableViewCell: UITableViewCell {
+final class ShowTableViewCell: UITableViewCell {
     
     static let identifier = "ShowTableViewCell"
     
@@ -19,7 +19,6 @@ class ShowTableViewCell: UITableViewCell {
     @IBOutlet  weak var showReviews: UILabel!
     @IBOutlet  weak var showNumOfReviews: UILabel!
     @IBOutlet  weak var showRatingStars: RatingView!
-    
     
     // MARK: - Properties
     

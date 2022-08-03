@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import MBProgressHUD
 
-class ReviewViewController: UIViewController {
+final class ReviewViewController: UIViewController {
     
     // MARK: - Outlets
     
@@ -25,6 +25,7 @@ class ReviewViewController: UIViewController {
     var showInfo: String? = nil
     var reviewData: Show? = nil
     var showId: Int = 0
+    var commentTextField: String = ""
     
     // MARK: - Lifecycle methods
     
@@ -48,7 +49,6 @@ class ReviewViewController: UIViewController {
         super.viewWillDisappear(animated)
       
     }
-
 }
 
 extension ReviewViewController {
@@ -58,7 +58,14 @@ extension ReviewViewController {
     }
     
     @IBAction func submitButton(sender: UIButton) {
-        postReview()
+        guard let commentTextField = userComment.text else {
+            return
+        }
+        if commentTextField.isEmpty {
+            return
+        } else {
+            postReview()
+        }
     }
 }
 
@@ -77,7 +84,7 @@ extension ReviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableReview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ReviewTableViewCell
         cell.titleLabel.text = "Rating"
-//        cell.ratingView.isEnabled = true
+        cell.ratingView.isEnabled = true
 //        cell.ratingView.rating = 4
 
         return cell
@@ -95,10 +102,9 @@ extension ReviewViewController {
                 return
             }
             let urlRequest = "https://tv-shows.infinum.academy/reviews"
-            print("URL patekata: \(urlRequest)")
             let parameters: [String: Any] = [
                 "rating": 4,
-                "comment": "ratingNewsIsFeeeeeelsLoooong",
+                "comment": userComment,
                 "show_id": showId
                 
             ]
@@ -117,7 +123,6 @@ extension ReviewViewController {
                     MBProgressHUD.hide(for: self.view, animated: true)
                     switch response.result {
                     case .success(let showReview):
-                       
                         print("RESPONSE: \(showReview)")
                     case .failure(let error):
                         print("Sending review failed! \(error)")
@@ -133,7 +138,6 @@ extension ReviewViewController {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         self.present(alert, animated:true) {
-        
             return
         }
     }

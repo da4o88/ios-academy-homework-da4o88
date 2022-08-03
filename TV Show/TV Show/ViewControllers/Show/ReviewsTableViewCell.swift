@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewsTableViewCell: UITableViewCell {
+final class ReviewsTableViewCell: UITableViewCell {
     
     static let identifier = "ReviewsTableViewCell"
 

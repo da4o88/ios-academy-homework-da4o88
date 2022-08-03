@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TvShowsTableViewCell: UITableViewCell {
+final class TvShowsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     

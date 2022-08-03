@@ -11,7 +11,7 @@ import Alamofire
 import MBProgressHUD
 import Kingfisher
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Outlets
    
@@ -19,8 +19,8 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
 
-    let authData = AuthInfoData.shared
-    var tableViewData: [Show] = []
+    private let authData = AuthInfoData.shared
+    private var tableViewData: [Show] = []
     
     // MARK: - Lifecycle methods
     
@@ -69,7 +69,6 @@ extension HomeViewController {
                 }
             
             }
-        
     }
 }
 

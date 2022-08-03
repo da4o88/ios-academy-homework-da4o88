@@ -13,8 +13,6 @@ import Alamofire
 
 final class LoginViewController: UIViewController {
     
-  
-    
     // MARK: - Outlets
     
     @IBOutlet private weak var checkBoxButton: UIButton!
@@ -31,10 +29,7 @@ final class LoginViewController: UIViewController {
     private var emailPassFieldEmpty = true
     private var email = ""
     private var password = ""
-//    private var userData: User? = nil
-//    var headers: [String: String] = [:]
-     let instance = AuthInfoData.shared
-    
+    private let instance = AuthInfoData.shared
     
     // MARK: - Lifecycle methods
     
@@ -138,7 +133,6 @@ extension LoginViewController {
     func pushToHomeScreen() {
         let homeScreen = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
         homeScreen.navigationItem.largeTitleDisplayMode = .never
-//        homeScreen.userHeaders = headers
         self.navigationController?.pushViewController(homeScreen, animated: true)
         
     }
@@ -210,7 +204,6 @@ extension LoginViewController {
             print("Missing Headers")
             return
         }
-//            print("\(user)\n\n\(authInfo)")
         instance.user = user
         instance.authInfo = authInfo
         
