@@ -91,7 +91,6 @@ extension ShowDetailsViewController: UITableViewDataSource {
             let data = reviewsData[indexPath.row]
             let url = URL(string: (data?.user.imageUrl ?? ""))
             cellShow.profileImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-profile-placeholder"))
-            cellShow.profileImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-profile-placeholder"))
             cellShow.userId.text = data?.user.email
 //            cellShow.ratingStars.rating = ""
             cellShow.userComments.text = data?.comment

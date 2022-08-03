@@ -53,7 +53,7 @@ class ReviewViewController: UIViewController {
 
 extension ReviewViewController {
     
-    @IBAction func backButton(sender: UIBarButtonItem) {
+    @IBAction func backButtonActionHandler(sender: UIBarButtonItem) {
         dismissOrPop()
     }
     
