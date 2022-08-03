@@ -15,7 +15,7 @@ class ShowDetailsViewController: UIViewController {
     
     // MARK: - Outlets
    
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
    
     // MARK: - Properties
 
@@ -23,11 +23,6 @@ class ShowDetailsViewController: UIViewController {
     var showData: Show? = nil
     var reviewsData: [Review?] = []
     var showId: Int = 0
-    
-    // MARK: - Properties 2
-    
-//    var showInfo: Show? = nil
-//    var showReview: [Review] = []
     
     // MARK: - Lifecycle methods
     override func viewDidLoad() {
@@ -37,8 +32,6 @@ class ShowDetailsViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 1200
-       
-//        getShowReviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,9 +39,7 @@ class ShowDetailsViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.title = showData?.title
         navigationItem.largeTitleDisplayMode = .always
-        
         getShowReviews()
-        print("DALIE TOA: \(String(describing: reviewsData))")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,7 +58,6 @@ class ShowDetailsViewController: UIViewController {
 
     // MARK: - Two TableViewCells
 
-    
 extension ShowDetailsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -80,9 +70,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
             // return count from second cell
             return reviewsData.count
         }
-       
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -92,37 +80,30 @@ extension ShowDetailsViewController: UITableViewDataSource {
         cellShow.showImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-show-placeholder-vertical"))
         cellShow.showDescription.text = showData?.description
         cellShow.showReviews.text = "Reviews"
-        
         let numOfReviews = showData?.numOfReviews
         let numOfAverageReviews = showData?.averageRating
-
         cellShow.showNumOfReviews.text = "\(String(describing: numOfReviews!))   REVIEWS   \(String(describing: numOfAverageReviews!))    AVERAGE"
-        
-        cellShow.showRatingStars.rating = 4
+        cellShow.showRatingStars.rating = Int((showData?.averageRating)!)
         
         return cellShow
         } else {
             let cellShow = tableView.dequeueReusableCell(withIdentifier: String(describing: ReviewsTableViewCell.identifier ) , for: indexPath) as! ReviewsTableViewCell
             let data = reviewsData[indexPath.row]
 //            let url1 = URL(string: (showData?.imageUrl)!)
-            
+//            if let url = URL(string: (data?.user.imageUrl)!) else { return "" }
             
             cellShow.userId.text = data?.user.id
 //            cellShow.ratingStars.rating = ""
             cellShow.userComments.text = data?.comment
-//            cellShow.userComments.text = reviewsData.indexPath.row.comment
-            
             return cellShow
         }
     }
     
 }
 
-
 extension ShowDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // Change to dynamic  Here check again
-      
         return UITableView.automaticDimension
     }
 
@@ -133,36 +114,17 @@ extension ShowDetailsViewController: UITableViewDelegate {
 
 extension ShowDetailsViewController {
     
-    
     // MARK: - Utility
     
     func presentToReviewScreen() {
         let reviewScreen = self.storyboard?.instantiateViewController(withIdentifier: "ReviewViewController") as! ReviewViewController
-//        reviewScreen.navigationItem.largeTitleDisplayMode = .never
-//        reviewScreen.navigationController?.isNavigationBarHidden = false
         reviewScreen.showInfo = showData?.id
         reviewScreen.showId = showId
-//        reviewScreen.reviewData = showData.id 
-
-
-//        reviewScreen.showData = data
-//        homeScreen.userHeaders = headers
         self.navigationController?.present(reviewScreen, animated: true)
-        
-        // Something new
-//
-//        let editorViewController = reviewScreen
-//         let navEditorViewController: UINavigationController = UINavigationController(rootViewController: editorViewController)
-//        self.present(navEditorViewController, animated: true, completion: nil)
-
-        
-        
     }
 }
 
-
 extension ShowDetailsViewController {
-
 
     // MARK: - Utility methods
 
@@ -186,22 +148,12 @@ extension ShowDetailsViewController {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let showReviews):
-                   
-
-
                     self.reviewsData = showReviews.reviews
                     self.tableView.reloadData()
-
-//                    print("RESPONSE: \(response)")
-//                    print("REVIEWS: \(showReviews.reviews.rating)")
-//                    print("REVIEWS DATA: ")
-//                    print(self.reviewsData)
-
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }
 
             }
-
     }
 }

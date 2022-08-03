@@ -11,7 +11,7 @@ class TvShowsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var showImage: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var showImage: UIImageView!
     
 }

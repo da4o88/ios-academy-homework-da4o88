@@ -14,11 +14,11 @@ class ShowTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var showImage: UIImageView!
-    @IBOutlet weak var showDescription: UILabel!
-    @IBOutlet weak var showReviews: UILabel!
-    @IBOutlet weak var showNumOfReviews: UILabel!
-    @IBOutlet weak var showRatingStars: RatingView!
+    @IBOutlet private weak var showImage: UIImageView!
+    @IBOutlet private weak var showDescription: UILabel!
+    @IBOutlet private weak var showReviews: UILabel!
+    @IBOutlet private weak var showNumOfReviews: UILabel!
+    @IBOutlet private weak var showRatingStars: RatingView!
     
     
     // MARK: - Properties
@@ -29,5 +29,4 @@ class ShowTableViewCell: UITableViewCell {
         showRatingStars.configure(withStyle: .small)
         showRatingStars.isEnabled = false
     }
-    
 }

@@ -11,18 +11,14 @@ import Alamofire
 import MBProgressHUD
 import SwiftUI
 
-
 class ReviewViewController: UIViewController {
-    
-    
     
     // MARK: - Outlets
     
- 
-    @IBOutlet weak var tableReview: UITableView!
-    @IBOutlet weak var closeBackButton: UIBarButtonItem!
-    @IBOutlet weak var userComment: UITextField!
-    @IBOutlet weak var submitButtonView: UIButton!
+    @IBOutlet private weak var tableReview: UITableView!
+    @IBOutlet private weak var closeBackButton: UIBarButtonItem!
+    @IBOutlet private weak var userComment: UITextField!
+    @IBOutlet private weak var submitButtonView: UIButton!
     
     // MARK: - Properties
     
@@ -38,10 +34,8 @@ class ReviewViewController: UIViewController {
         
         self.view.backgroundColor = .systemTeal
         closeBackButton.title = "Close"
-        
         tableReview.dataSource = self
         tableReview.delegate = self
-        
         
     }
     
@@ -66,7 +60,6 @@ extension ReviewViewController {
     
     @IBAction func submitButton(sender: UIButton) {
         postReview()
-        
     }
 }
 
@@ -90,13 +83,10 @@ extension ReviewViewController: UITableViewDataSource {
 
         return cell
     }
-    
-    
 }
 
 extension ReviewViewController {
     
-
         // MARK: - Utility methods
 
         func postReview() {
@@ -109,7 +99,7 @@ extension ReviewViewController {
             print("URL patekata: \(urlRequest)")
             let parameters: [String: Any] = [
                 "rating": rating,
-                "comment": userComment,
+                "comment": "ratingNews",
                 "show_id": showId
                 
             ]
@@ -129,23 +119,14 @@ extension ReviewViewController {
                     switch response.result {
                     case .success(let showReviews):
                        
-                        
-                        
                         print("RESPONSE: \(showReviews)")
-    //                    print("REVIEWS: \(showReviews.reviews.rating)")
-    //                    print("REVIEWS DATA: \(self.reviewsData)")
-        
                     case .failure(let error):
                         print("Sending review failed! \(error)")
                         let message = "Sending your review failed. Try again!"
                         self.alertMessage(message: message)
                     }
-
                 }
-
         }
-
-    
 }
 
 extension ReviewViewController {

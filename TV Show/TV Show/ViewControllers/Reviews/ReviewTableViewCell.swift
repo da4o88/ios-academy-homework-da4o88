@@ -11,8 +11,8 @@ class ReviewTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var ratingView: RatingView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var ratingView: RatingView!
     
     // MARK: - Lifecycle methods
     

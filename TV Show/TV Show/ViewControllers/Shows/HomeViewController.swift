@@ -112,6 +112,5 @@ extension HomeViewController {
         showScreen.navigationController?.isNavigationBarHidden = false
         showScreen.showData = data
         self.navigationController?.pushViewController(showScreen, animated: true)
-        
     }
 }
