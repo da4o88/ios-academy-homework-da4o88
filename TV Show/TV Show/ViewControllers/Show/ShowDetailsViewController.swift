@@ -13,19 +13,9 @@ import MBProgressHUD
 
 class ShowDetailsViewController: UIViewController {
     
-    private let tableView: UITableView = {
-        let table = UITableView()
-        
-        table.register(ShowTableViewCell.self, forCellReuseIdentifier: ShowTableViewCell.identifier)
-        table.register(ReviewsTableViewCell.self, forCellReuseIdentifier: ReviewsTableViewCell.identifier)
-        
-        
-        return table
-    }()
-    
     // MARK: - Outlets
    
-//    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
    
     // MARK: - Properties
 
@@ -43,7 +33,6 @@ class ShowDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -70,7 +59,7 @@ class ShowDetailsViewController: UIViewController {
     // MARK: - Action
     
     @IBAction func didTapBUttonReview(_ sender: Any) {
-//        presentToReviewScreen()
+        presentToReviewScreen()
     }
     
 }
@@ -89,7 +78,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
             return 1
         } else {
             // return count from second cell
-            return 20
+            return reviewsData.count
         }
        
     }
@@ -114,12 +103,13 @@ extension ShowDetailsViewController: UITableViewDataSource {
         return cellShow
         } else {
             let cellShow = tableView.dequeueReusableCell(withIdentifier: String(describing: ReviewsTableViewCell.identifier ) , for: indexPath) as! ReviewsTableViewCell
+            let data = reviewsData[indexPath.row]
 //            let url1 = URL(string: (showData?.imageUrl)!)
             
             
-            cellShow.userId.text = "My new ID is NEW"
+            cellShow.userId.text = data?.user.id
 //            cellShow.ratingStars.rating = ""
-            cellShow.userComments.text = "Future comments place here!"
+            cellShow.userComments.text = data?.comment
 //            cellShow.userComments.text = reviewsData.indexPath.row.comment
             
             return cellShow
@@ -133,7 +123,7 @@ extension ShowDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // Change to dynamic  Here check again
       
-        return 570
+        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -160,10 +150,10 @@ extension ShowDetailsViewController {
         self.navigationController?.present(reviewScreen, animated: true)
         
         // Something new
-        
-        let editorViewController = reviewScreen
-         let navEditorViewController: UINavigationController = UINavigationController(rootViewController: editorViewController)
-        self.present(navEditorViewController, animated: true, completion: nil)
+//
+//        let editorViewController = reviewScreen
+//         let navEditorViewController: UINavigationController = UINavigationController(rootViewController: editorViewController)
+//        self.present(navEditorViewController, animated: true, completion: nil)
 
         
         

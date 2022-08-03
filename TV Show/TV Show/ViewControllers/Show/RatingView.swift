@@ -125,16 +125,14 @@ private extension RatingView {
 
     func setRating(_ rating: Int) {
         // TODO: Your code goes here
-      
-                
-        return
+//        self.rating = rating
+        // for loop
     }
 
     func currentSelectedRating() -> Int {
         // TODO: Your code goes here
-        self.rating = 3
-
-        return rating
+        // Vrati broj na selectirani
+        return 0
     }
 }
 

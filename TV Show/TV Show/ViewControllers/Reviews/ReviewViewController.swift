@@ -107,8 +107,8 @@ extension ReviewViewController {
             }
             let urlRequest = "https://tv-shows.infinum.academy/reviews"
             print("URL patekata: \(urlRequest)")
-            let parameters: [String: Any?] = [
-                "rating": String(rating),
+            let parameters: [String: Any] = [
+                "rating": rating,
                 "comment": userComment,
                 "show_id": showId
                 
@@ -118,12 +118,12 @@ extension ReviewViewController {
               .request(
                   urlRequest,
                   method: HTTPMethod.post,
-                  parameters: parameters as Parameters,
+                  parameters: parameters,
                   headers: HTTPHeaders(authData.authInfo!.headers)
                   
               )
               .validate()
-                .responseDecodable(of: ReviewResponse.self) { [weak self] response in
+                .responseDecodable(of: Review.self) { [weak self] response in
                     guard let self = self else {return}
                     MBProgressHUD.hide(for: self.view, animated: true)
                     switch response.result {
