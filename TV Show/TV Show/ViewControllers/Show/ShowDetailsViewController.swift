@@ -28,14 +28,13 @@ class ShowDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 1200
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.title = showData?.title
         navigationItem.largeTitleDisplayMode = .always
@@ -44,6 +43,7 @@ class ShowDetailsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -73,7 +73,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+       
         if indexPath.section == 0 {
         let cellShow = tableView.dequeueReusableCell(withIdentifier: String(describing: ShowTableViewCell.self) , for: indexPath) as! ShowTableViewCell
         let url = URL(string: (showData?.imageUrl)!)
@@ -89,10 +89,10 @@ extension ShowDetailsViewController: UITableViewDataSource {
         } else {
             let cellShow = tableView.dequeueReusableCell(withIdentifier: String(describing: ReviewsTableViewCell.identifier ) , for: indexPath) as! ReviewsTableViewCell
             let data = reviewsData[indexPath.row]
-//            let url1 = URL(string: (showData?.imageUrl)!)
-//            if let url = URL(string: (data?.user.imageUrl)!) else { return "" }
-            
-            cellShow.userId.text = data?.user.id
+            let url = URL(string: (data?.user.imageUrl ?? ""))
+            cellShow.profileImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-profile-placeholder"))
+            cellShow.profileImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-profile-placeholder"))
+            cellShow.userId.text = data?.user.email
 //            cellShow.ratingStars.rating = ""
             cellShow.userComments.text = data?.comment
             return cellShow
@@ -153,7 +153,6 @@ extension ShowDetailsViewController {
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }
-
             }
     }
 }

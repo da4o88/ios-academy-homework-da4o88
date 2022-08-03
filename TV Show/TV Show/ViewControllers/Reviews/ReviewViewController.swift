@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import Alamofire
 import MBProgressHUD
-import SwiftUI
 
 class ReviewViewController: UIViewController {
     
@@ -78,8 +77,8 @@ extension ReviewViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableReview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ReviewTableViewCell
         cell.titleLabel.text = "Rating"
-        cell.ratingView.isEnabled = true
-        cell.ratingView.rating = 4
+//        cell.ratingView.isEnabled = true
+//        cell.ratingView.rating = 4
 
         return cell
     }
@@ -98,8 +97,8 @@ extension ReviewViewController {
             let urlRequest = "https://tv-shows.infinum.academy/reviews"
             print("URL patekata: \(urlRequest)")
             let parameters: [String: Any] = [
-                "rating": rating,
-                "comment": "ratingNews",
+                "rating": 4,
+                "comment": "ratingNewsIsFeeeeeelsLoooong",
                 "show_id": showId
                 
             ]
@@ -117,9 +116,9 @@ extension ReviewViewController {
                     guard let self = self else {return}
                     MBProgressHUD.hide(for: self.view, animated: true)
                     switch response.result {
-                    case .success(let showReviews):
+                    case .success(let showReview):
                        
-                        print("RESPONSE: \(showReviews)")
+                        print("RESPONSE: \(showReview)")
                     case .failure(let error):
                         print("Sending review failed! \(error)")
                         let message = "Sending your review failed. Try again!"
@@ -134,6 +133,7 @@ extension ReviewViewController {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel))
         self.present(alert, animated:true) {
+        
             return
         }
     }

@@ -13,10 +13,10 @@ class ReviewsTableViewCell: UITableViewCell {
 
     // MARK: - Outlets
   
-    @IBOutlet private weak var profileImage: UIImageView!
-    @IBOutlet private weak var userId: UILabel!
-    @IBOutlet private weak var ratingStars: RatingView!
-    @IBOutlet private weak var userComments: UILabel!
+    @IBOutlet  weak var profileImage: UIImageView!
+    @IBOutlet  weak var userId: UILabel!
+    @IBOutlet  weak var ratingStars: RatingView!
+    @IBOutlet  weak var userComments: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
