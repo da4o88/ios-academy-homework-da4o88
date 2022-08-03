@@ -336,7 +336,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="yUK-hu-7Kl">
-                                    <rect key="frame" x="0.0" y="163.33333206176758" width="375" height="350"/>
+                                    <rect key="frame" x="0.0" y="163.33333206176763" width="375" height="350.00000000000006"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3R-Zc-85M">
@@ -524,11 +524,11 @@
                                             <outlet property="showReviews" destination="jHY-LC-msH" id="VdG-gm-klS"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewsTableViewCell" rowHeight="400" id="gL1-CO-Xex" customClass="ReviewsTableViewCell" customModule="TV_Show" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="465.66666603088379" width="375" height="400"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewsTableViewCell" rowHeight="160" id="gL1-CO-Xex" customClass="ReviewsTableViewCell" customModule="TV_Show" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="465.66666603088379" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gL1-CO-Xex" id="dAm-pc-ysF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-LH-sl9">

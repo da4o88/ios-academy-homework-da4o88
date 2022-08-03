@@ -47,6 +47,6 @@ struct RatingViewStar: View {
 
 struct RatingViewStar_Previews: PreviewProvider {
     static var previews: some View {
-        RatingViewStar(rating: .constant(4))
+        RatingViewStar(rating: .constant(2))
     }
 }

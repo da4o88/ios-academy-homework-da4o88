@@ -31,7 +31,7 @@ class ShowDetailsViewController: UIViewController {
 
     let authData = AuthInfoData.shared
     var showData: Show? = nil
-    var reviewsData: [Review] = []
+    var reviewsData: [Review?] = []
     var showId: Int = 0
     
     // MARK: - Properties 2
@@ -49,7 +49,7 @@ class ShowDetailsViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 1200
        
-        getShowReviews()
+//        getShowReviews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +58,8 @@ class ShowDetailsViewController: UIViewController {
         navigationItem.title = showData?.title
         navigationItem.largeTitleDisplayMode = .always
         
+        getShowReviews()
+        print("DALIE TOA: \(String(describing: reviewsData))")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,6 +88,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
         if section == 0 {
             return 1
         } else {
+            // return count from second cell
             return 20
         }
        
@@ -117,7 +120,7 @@ extension ShowDetailsViewController: UITableViewDataSource {
             cellShow.userId.text = "My new ID is NEW"
 //            cellShow.ratingStars.rating = ""
             cellShow.userComments.text = "Future comments place here!"
-            print("showData: \(String(describing: reviewsData.count))")
+//            cellShow.userComments.text = reviewsData.indexPath.row.comment
             
             return cellShow
         }
@@ -193,14 +196,17 @@ extension ShowDetailsViewController {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let showReviews):
-                  
+                   
+
+
                     self.reviewsData = showReviews.reviews
                     self.tableView.reloadData()
-                    
+
 //                    print("RESPONSE: \(response)")
 //                    print("REVIEWS: \(showReviews.reviews.rating)")
-                    print("REVIEWS DATA: \(self.reviewsData)")
-    
+//                    print("REVIEWS DATA: ")
+//                    print(self.reviewsData)
+
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }
