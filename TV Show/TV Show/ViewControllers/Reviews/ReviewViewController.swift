@@ -22,6 +22,7 @@ class ReviewViewController: UIViewController {
     @IBOutlet weak var tableReview: UITableView!
     @IBOutlet weak var closeBackButton: UIBarButtonItem!
     @IBOutlet weak var userComment: UITextField!
+    @IBOutlet weak var submitButtonView: UIButton!
     
     // MARK: - Properties
     
@@ -46,17 +47,14 @@ class ReviewViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        roundedButtons()
     
-        
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
       
     }
-
-    
 
 }
 
@@ -97,6 +95,7 @@ extension ReviewViewController: UITableViewDataSource {
 }
 
 extension ReviewViewController {
+    
 
         // MARK: - Utility methods
 
@@ -138,12 +137,30 @@ extension ReviewViewController {
         
                     case .failure(let error):
                         print("Sending review failed! \(error)")
+                        let message = "Sending your review failed. Try again!"
+                        self.alertMessage(message: message)
                     }
 
                 }
 
         }
+
     
+}
+
+extension ReviewViewController {
+    func alertMessage(message: String?) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+        self.present(alert, animated:true) {
+            return
+        }
+    }
+    
+    private func roundedButtons() -> Void {
+        submitButtonView.layer.cornerRadius = 24
+        submitButtonView.layer.masksToBounds = true
+    }
 }
 
 extension UIViewController {
