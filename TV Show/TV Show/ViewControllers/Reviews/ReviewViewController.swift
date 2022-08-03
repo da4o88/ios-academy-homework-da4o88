@@ -62,8 +62,8 @@ class ReviewViewController: UIViewController {
 
 extension ReviewViewController {
     
-    @IBAction func backButton(sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+    @IBAction func backButton(sender: UIBarButtonItem) {
+        dismissOrPop()
     }
     
     @IBAction func submitButton(sender: UIButton) {
@@ -144,4 +144,17 @@ extension ReviewViewController {
 
         }
     
+}
+
+extension UIViewController {
+    func dismissOrPop() {
+        if presentingViewController != nil {
+            dismiss(animated: true, completion: nil)
+        } else if navigationController?.presentingViewController != nil,
+                  navigationController?.viewControllers.count == 1 {
+            navigationController?.popViewController(animated: true)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
 }

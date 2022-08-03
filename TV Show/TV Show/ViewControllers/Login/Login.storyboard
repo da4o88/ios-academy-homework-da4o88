@@ -328,7 +328,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Write a Review" id="g0q-YM-phH">
-                                        <barButtonItem key="leftBarButtonItem" title="Close" id="dXc-Zh-H4p"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Close" id="dXc-Zh-H4p">
+                                            <connections>
+                                                <action selector="backButtonWithSender:" destination="HfF-85-1gK" id="FUS-Av-Oou"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -336,7 +340,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="yUK-hu-7Kl">
-                                    <rect key="frame" x="0.0" y="163.33333206176763" width="375" height="350.00000000000006"/>
+                                    <rect key="frame" x="0.0" y="163.33333206176758" width="375" height="350"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3R-Zc-85M">
