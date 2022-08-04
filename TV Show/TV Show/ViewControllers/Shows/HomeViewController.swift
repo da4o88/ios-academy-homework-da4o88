@@ -29,7 +29,7 @@ final class HomeViewController: UIViewController {
         
         self.navigationItem.title = "Shows"
         self.navigationItem.setHidesBackButton(true, animated: true)
-        tvShows()
+        getTVShows()
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -46,7 +46,7 @@ extension HomeViewController {
     
     // MARK: - Utility methods
     
-    func tvShows() {
+    func getTVShows() {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let urlRequest = "https://tv-shows.infinum.academy/shows"
         AF
