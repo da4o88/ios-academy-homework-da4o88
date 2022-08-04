@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import Alamofire
 import MBProgressHUD
+import Kingfisher
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Outlets
    
@@ -18,16 +19,14 @@ class HomeViewController: UIViewController {
     
     // MARK: - Properties
 
-    var userHeaders: [String: String] = [:]
-    var tableViewData: [Show] = []
-    
-    //private let items = Array(repeating: "Cell", count: 100)
+    private let authData = AuthInfoData.shared
+    private var tableViewData: [Show] = []
     
     // MARK: - Lifecycle methods
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
         self.navigationItem.title = "Shows"
         self.navigationItem.setHidesBackButton(true, animated: true)
         getTVShows()
@@ -36,8 +35,11 @@ class HomeViewController: UIViewController {
         
     }
     
-    // MARK: - Actions
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
+    }
 }
 
 extension HomeViewController {
@@ -52,7 +54,7 @@ extension HomeViewController {
               urlRequest,
               method: HTTPMethod.get,
               parameters: ["page": "1", "items": "100"], // pagination arguments
-              headers: HTTPHeaders(userHeaders)
+              headers: HTTPHeaders(authData.authInfo!.headers)
           )
           .validate()
             .responseDecodable(of: ShowsResponse.self) { [weak self] response in
@@ -60,17 +62,13 @@ extension HomeViewController {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 switch response.result {
                 case .success(let tvShows):
-                   
                     self.tableViewData = tvShows.shows
                     self.tableView.reloadData()
-                    print("news: \(tvShows.shows)")
-                    
                 case .failure(let error):
                     print("Response failed! \(error)")
                 }
             
             }
-        
     }
 }
 
@@ -80,13 +78,14 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TvShowsTableViewCell.self), for: indexPath) as! TvShowsTableViewCell
         
-        cell.titleLabel.text = tableViewData[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: TvShowsTableViewCell.self), for: indexPath) as! TvShowsTableViewCell
+        let data = tableViewData[indexPath.row]
+        let url = URL(string: data.imageUrl!)
+        cell.showImage.kf.setImage(with: url, placeholder: UIImage(named: "ic-show-placeholder-vertical"))
+        cell.titleLabel.text = data.title
         return cell
     }
-    
-    
 }
 
 extension HomeViewController: UITableViewDelegate {
@@ -96,6 +95,21 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("selected cell at \(indexPath.row)")
+        // send data object at selected indexPath
+        let dataShow = tableViewData[indexPath.row]
+        pushToShowScreen(data: dataShow)
+    }
+}
+
+extension HomeViewController {
+    
+    // MARK: - Utility
+    
+    func pushToShowScreen(data: Show) {
+        let showScreen = self.storyboard?.instantiateViewController(withIdentifier: "ShowScreen") as! ShowDetailsViewController
+        showScreen.navigationItem.largeTitleDisplayMode = .never
+        showScreen.navigationController?.isNavigationBarHidden = false
+        showScreen.showData = data
+        self.navigationController?.pushViewController(showScreen, animated: true)
     }
 }

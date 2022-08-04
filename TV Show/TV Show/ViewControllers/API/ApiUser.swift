@@ -26,7 +26,7 @@ struct User: Decodable {
 }
 
 struct AuthInfo: Codable {
-
+    
     let accessToken: String
     let client: String
     let tokenType: String

@@ -29,8 +29,7 @@ final class LoginViewController: UIViewController {
     private var emailPassFieldEmpty = true
     private var email = ""
     private var password = ""
-    private var userData: User? = nil
-    var headers: [String: String] = [:]
+    private let instance = AuthInfoData.shared
     
     // MARK: - Lifecycle methods
     
@@ -97,6 +96,11 @@ final class LoginViewController: UIViewController {
         }
     }
     
+
+}
+
+extension LoginViewController {
+    
     // MARK: - Utility methods
     
     // Create round edges on button
@@ -129,7 +133,6 @@ final class LoginViewController: UIViewController {
     func pushToHomeScreen() {
         let homeScreen = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! HomeViewController
         homeScreen.navigationItem.largeTitleDisplayMode = .never
-        homeScreen.userHeaders = headers
         self.navigationController?.pushViewController(homeScreen, animated: true)
         
     }
@@ -154,6 +157,9 @@ final class LoginViewController: UIViewController {
             emailPassFieldEmpty = true
         }
     }
+}
+
+extension LoginViewController {
     
     // MARK: - API requests
     
@@ -179,14 +185,9 @@ final class LoginViewController: UIViewController {
             switch response.result {
             case .success(let userInfo):
                 // Store data from API response to variable
-                self.userData = userInfo.user
+                self.instance.user = userInfo.user
                 let headers = response.response?.headers.dictionary ?? [:]
                 self.handleSuccesfulLogin(for: userInfo.user, headers: headers)
-//                guard let authInfo = try? AuthInfo(headers: headers) else {
-//                    print("Missing headers")
-//                            return
-//                        }
-//                    print("\(String(describing: self.userData))\n\n\(authInfo)")
                 self.pushToHomeScreen()
             case .failure(let error):
                 print("API Error ---")
@@ -198,17 +199,14 @@ final class LoginViewController: UIViewController {
     }
     
 // Headers will be used for subsequent authorization on next requests
-    func handleSuccesfulLogin(for user: User, headers: [String: String]) {
+    public func handleSuccesfulLogin(for user: User, headers: [String: String]) {
         guard let authInfo = try? AuthInfo(headers: headers) else {
-//            infoLabel.text = "Missing headers"
             print("Missing Headers")
             return
         }
-            print("\(user)\n\n\(authInfo)")
-        self.headers = authInfo.headers
-     
+        instance.user = user
+        instance.authInfo = authInfo
         
-//        infoLabel.text = "\(user)\n\n\(authInfo)"
     }
     
     func registerUser() {
@@ -233,14 +231,10 @@ final class LoginViewController: UIViewController {
             MBProgressHUD.hide(for: self.view, animated: true)
             switch response.result {
             case .success(let userInfo):
-                self.pushToHomeScreen()
-                self.userData = userInfo.user
+                self.instance.user = userInfo.user
                 let headers = response.response?.headers.dictionary ?? [:]
-                guard let authInfo = try? AuthInfo(headers: headers) else {
-                    print("Missing headers")
-                            return
-                        }
-                    print("\(String(describing: self.userData))\n\n\(authInfo)")
+                self.handleSuccesfulLogin(for: userInfo.user, headers: headers)
+                self.pushToHomeScreen()
             case .failure(let error):
                 print("API Error ---")
                 print("Failure: \(error)")
